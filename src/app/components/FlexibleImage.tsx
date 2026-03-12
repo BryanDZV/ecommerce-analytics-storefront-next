@@ -8,7 +8,8 @@ function FlexibleImage({
   width,
   height,
   sizes,
-  priority,
+  priority = false,
+  placeholder = 'empty',
 }: FlexibleImageProps) {
   return (
     <Image
@@ -24,6 +25,7 @@ function FlexibleImage({
       sizes={sizes}
       // true -> High priority and lazy loading will be disabled
       priority={priority}
+      placeholder={placeholder}
     />
   );
 }

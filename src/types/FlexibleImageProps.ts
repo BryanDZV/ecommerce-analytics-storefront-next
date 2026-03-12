@@ -1,8 +1,12 @@
+// This is the object next.js creates when importing a local image
+import { StaticImageData } from 'next/image';
+
 export interface FlexibleImageProps {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
-  width: number;
-  height: number;
-  sizes: string;
-  priority: boolean;
+  width?: number;
+  height?: number;
+  sizes?: string;
+  priority?: boolean;
+  placeholder?: 'blur' | 'empty';
 }
