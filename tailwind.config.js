@@ -8,12 +8,12 @@ exports = {
   theme: {
     extend: {
         colors: {
-          brand: {
-            50: '#00027e'
-          }
+          // brand: {
+          //   50: '#866a16'
+          // }
             // 'marca-principal': '#00027e',
             // 'marca-oscuro': '#7a74cb',
-            //  'rosa': '#ad2dab',
+           'marron': '#4e3b09',
             //  'brand': 'pink',
             // background: "hsl(var(--background))",
             // foreground: "hsl(var(--foreground))",

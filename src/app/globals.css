@@ -1,3 +1,38 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+:root {
+  /* Tema Light (Default) */
+  --background: #e6e6e6;
+  --foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  
+}
+
+[data-theme='dark'] {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+}
+
+[data-theme='retro'] {
+  --background: 35 43% 82%;
+  --foreground: 25 15% 15%;
+  --primary: 12 76% 61%;
+}
+
+@layer components {
+    .primary {
+    @apply px-6 py-3 rounded-full font-bold transition-all duration-200;
+    background-color: hsl(var(--primary));
+    color: white;
+  }
+
+  .texto_cabecera {
+    font-size: 50px;
+    font-family: sans-serif;
+  }
+} 
