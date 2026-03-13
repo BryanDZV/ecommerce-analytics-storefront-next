@@ -6,6 +6,7 @@ export interface FlexibleImageProps {
   alt: string;
   width?: number;
   height?: number;
+  fill?: boolean;
   sizes?: string;
   priority?: boolean;
   placeholder?: 'blur' | 'empty';

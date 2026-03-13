@@ -7,10 +7,26 @@ function FlexibleImage({
   alt,
   width,
   height,
+  fill,
   sizes,
   priority = false,
   placeholder = 'empty',
 }: FlexibleImageProps) {
+  // If we use fill, width and height will not be necessary to be defined because the image
+  // will be adapted to the container size, this also allow us to create a custom loading state
+  if (fill) {
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        placeholder={placeholder}
+      />
+    );
+  }
+
   return (
     <Image
       src={src}
