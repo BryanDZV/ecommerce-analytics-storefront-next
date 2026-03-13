@@ -8,13 +8,19 @@ export default function ProductGrid() {
         <div className="grid-box">
           <ProductCard></ProductCard>
         </div>
-        <div className="grid-box">2</div>
-        <div className="grid-box">3</div>
-        <div className="grid-box">4</div>
-        <div className="grid-box">5</div>
+        <div className="grid-box">
+          <ProductCard></ProductCard>
+        </div>
+        <div className="grid-box">
+          <ProductCard></ProductCard>
+        </div>
+        <div className="grid-box">
+          <ProductCard></ProductCard>
+        </div>
+        {/* <div className="grid-box">5</div>
         <div className="grid-box">6</div>
         <div className="grid-box">7</div>
-        <div className="grid-box">8</div>
+        <div className="grid-box">8</div> */}
       </section>
     </>
   );

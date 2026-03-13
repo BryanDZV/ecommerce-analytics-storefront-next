@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 export default function ProductCard() {
   return (
+    
     <>
       <section className="product-card">
         <div className="background-card">

@@ -66,29 +66,28 @@
   align-items: center;
   text-align: center;
 }
-h1 {
-  font-size: 40px;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  padding: 5%;
-}
 
 .filter-button {
-  background-color: #d4d4c1;
-  width: 10%;
+  border-top: 1px solid #000000; 
 }
-
-.border-bottom-box {
-    border-top: 1px solid #000000;
-} 
-
-.border-bottom-box-search{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.filter-box {
+  /* display: flex; */
   border-top: 1px solid #000000;
-  background-color: #d4d4c1;
-  
 } 
+.border-bottom-box-search hr{
+  margin-bottom: 10%;
+}  
+
+.title-box {
+   display: flex;  
+   justify-content: space-between;
+   align-items: center;
+   background-color: #d4d4c1;
+   padding: 20px;
+   border-bottom-left-radius: 60px;
+   border-bottom-right-radius: 60px;
+   max-width: 200%;
+}
 
 .input-search {
   background-color: rgb(255, 255, 255);
@@ -102,17 +101,23 @@ h1 {
   background-color: white;
   padding: 1%;
   border-radius: 20px;
+  width: 70%;
+}
+
+.cart-user {
+  display: flex;
 }
 
 .glass-search input {
-
   margin: 4px ;
 }
+
 .filter-image {
   background-color: #d4d4c1;
   width: 3rem;
   min-width: 1rem;
   padding: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .search-image {
@@ -120,39 +125,68 @@ h1 {
   margin: 2%;
 }
 
-
-
-.title-box {
- 
-  grid-row: span 2;
-}
-
-/* Product grid */
+/* PRODUCT GRID */
 
 .grid-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin: 2%;
+  gap: 25px;
+  margin: 5%;
 }
 
 .grid-box {
-  background: rgb(113, 109, 143);
-  padding: 20px;
+  box-shadow: 3px 10px 15px #4444443c;
+  background: #d4d4c1;
+  padding: 0px;
   border: 1px solid #ccc;
   text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: all 0.5s ease-in-out;
 }
+
 
 .product-card {
 
 }
 .background-card {
-  width: 20%;
+  
 }
 
 .background-card img {
   width: 100%;
 }
 
+@media (max-width: 576px) {
+  .grid-section {
+    grid-template-columns: repeat(1, 1fr);
+     gap:40px;
+     margin: 15%;
+  }
 
+  .border-bottom-box-search hr{
+  display: none;
+
+} 
+
+.title-box {
+    width: 200%;
+    border-bottom-right-radius: 0%;
+}  
+
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 5%;
+  }  
+}
+
+@media (min-width: 1024px) {
+  .grid-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 } 
