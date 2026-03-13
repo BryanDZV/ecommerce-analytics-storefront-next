@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Header from '../components/Header';
 import Searchbar from '@/components/Searchbar';
 import Footer from '@/components/Footer';
+import ProductGrid from '@/components/product/ProductGrid';
+import ProductCard from '@/components/product/ProductCard';
 
 export default function Page() {
   return (
@@ -12,6 +14,9 @@ export default function Page() {
 
         {/* BOTON BUSQUEDA, FILTROS Y CARRITO */}
         <Searchbar></Searchbar>
+
+        {/* PLANTILLA GRID */}
+        <ProductGrid></ProductGrid>
 
         {/* FOOTER */}
         <Footer></Footer>

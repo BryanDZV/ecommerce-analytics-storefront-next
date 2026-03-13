@@ -37,14 +37,16 @@
 }
 .description-box {
     @apply w-[40%] ml-[2.5%] pb-5;
-    max-width: 30%;
+    max-width: 50%;
     /* background-color: var(--primary); */
 }
 .description-box p {
    font-size: 130%;
 }
 .container-logo {
-     @apply pl-[25px] w-[10%];
+     @apply pl-[25px];
+     max-width: 8rem;
+     /* min-width: 10%; */
      display: flex;
      flex-direction: column;
      justify-content: end;
@@ -52,16 +54,105 @@
      border-top: solid black 1px;
 }
 
-.logo-image {
-    @apply pl-[10%] ;
+/* .logo-image {
+    @apply pl-[0%] ;
+} */
+
+/* SEARCHBAR */
+
+.title-search {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+  text-align: center;
+}
+h1 {
+  font-size: 40px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 5%;
+}
+
+.filter-button {
+  background-color: #d4d4c1;
+  width: 10%;
+}
+
+.border-bottom-box {
+    border-top: 1px solid #000000;
+} 
+
+.border-bottom-box-search{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #000000;
+  background-color: #d4d4c1;
+  
+} 
+
+.input-search {
+  background-color: rgb(255, 255, 255);
+  width: 80%;
+
+
+}
+.glass-search {
+  display: flex;
+  margin: 1%; 
+  background-color: white;
+  padding: 1%;
+  border-radius: 20px;
+}
+
+.glass-search input {
+
+  margin: 4px ;
+}
+.filter-image {
+  background-color: #d4d4c1;
+  width: 3rem;
+  min-width: 1rem;
+  padding: 10px;
+}
+
+.search-image {
+  width: 1.5rem;
+  margin: 2%;
 }
 
 
 
-/* .primary {
-    @apply px-6 py-3 rounded-full font-bold transition-all duration-200;
-    background-color: (var(--primary));
-    color: white;
-  } */
+.title-box {
+ 
+  grid-row: span 2;
+}
+
+/* Product grid */
+
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 2%;
+}
+
+.grid-box {
+  background: rgb(113, 109, 143);
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.product-card {
+
+}
+.background-card {
+  width: 20%;
+}
+
+.background-card img {
+  width: 100%;
+}
+
 
 } 
