@@ -1,5 +1,6 @@
 import { DashboardStats } from '@/types/analytics';
 
+// Mock analytics used for dashboard cards .
 export const analyticsData: DashboardStats = {
   totalRevenue: 85430.5,
   activeUsers: 1240,

@@ -1,5 +1,6 @@
 import { Product } from '@/types/product';
 
+// Base mock records before casting values to the Product interface.
 const rowData = [
   {
     id: 1,
@@ -233,6 +234,7 @@ const rowData = [
   },
 ];
 
+// Available local images assigned randomly
 const productImages = [
   '/assets/products/hair-dryer.jpg',
   '/assets/products/Telescope.jpg',
@@ -246,13 +248,14 @@ const productImages = [
   '/assets/products/Infrared-Space-Heater.jpg',
 ];
 
+// Normalized mock product list consumed by the storefront.
 export const products: Product[] = rowData.map((product) => ({
   id: String(product.id).trim(),
   name: String(product.name).trim(),
   description: String(product.description).trim(),
   price: Number(product.price),
   category: product.category as Product['category'],
-  image: productImages[product.id % productImages.length],
+  image: productImages[Math.floor(Math.random() * productImages.length)],
   stock: Number(product.stock),
   rating: Number(product.rating),
   createdAt: String(product.createdAt).trim(),
