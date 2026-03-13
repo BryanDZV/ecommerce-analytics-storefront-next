@@ -4,6 +4,7 @@ export interface SalesData {
   ordersCount: number;
 }
 
+// Summary metrics used by the analytics dashboard.
 export interface DashboardStats {
   totalRevenue: number;
   activeUsers: number;
