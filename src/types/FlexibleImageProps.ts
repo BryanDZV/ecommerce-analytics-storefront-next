@@ -9,5 +9,5 @@ export interface FlexibleImageProps {
   fill?: boolean;
   sizes?: string;
   priority?: boolean;
-  placeholder?: 'blur' | 'empty';
+  className?: string; // className for general styles (rounded-lg)
 }
