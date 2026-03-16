@@ -236,8 +236,8 @@ const rowData = [
 
 // Available local images assigned randomly
 const productImages = [
-  '/assets/products/hair-dryer.jpg',
   '/assets/products/Telescope.jpg',
+  '/assets/products/hair-dryer.jpg',
   '/assets/products/Magnetic-Phone-Case.jpg',
   '/assets/products/Hiking-Boots.webp',
   '/assets/products/set-costura-viaje-blanco.jpg',
