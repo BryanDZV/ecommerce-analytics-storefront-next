@@ -10,7 +10,6 @@ export default function Header() {
             <img src="/Nextcom.png" alt="" />
           </div>
         </div>
-
         <div className="description-box">
           <hr />
           <p>

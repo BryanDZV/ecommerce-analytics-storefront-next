@@ -1,16 +1,14 @@
 import Image from 'next/image';
+import Filtericon from './buttons/FilterIcon';
+
 export default function Searchbar() {
   return (
     <>
       <section>
         <div className="title-search">
-          <div className="filter-box">
-            <img
-              className="filter-image"
-              src="/filter.png"
-              alt="filter image"
-            />
-          </div>
+          {/* <div className="filter-box"> */}
+          <Filtericon></Filtericon>
+          {/* </div> */}
 
           <div className="title-box">
             <div className="glass-search">

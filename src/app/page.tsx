@@ -4,6 +4,7 @@ import Searchbar from '@/components/Searchbar';
 import Footer from '@/components/Footer';
 import ProductGrid from '@/components/product/ProductGrid';
 import ProductCard from '@/components/product/ProductCard';
+import GridPage from '@/components/GridPage';
 
 export default function Page() {
   return (
@@ -15,8 +16,11 @@ export default function Page() {
         {/* BOTON BUSQUEDA, FILTROS Y CARRITO */}
         <Searchbar></Searchbar>
 
+        <GridPage></GridPage>
+        {/* <SideBar></SideBar> */}
+
         {/* PLANTILLA GRID */}
-        <ProductGrid></ProductGrid>
+        {/* <ProductGrid></ProductGrid> */}
 
         {/* FOOTER */}
         <Footer></Footer>
