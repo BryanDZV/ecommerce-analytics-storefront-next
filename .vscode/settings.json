@@ -1,5 +1,5 @@
 {
   "commentTranslate.targetLanguage": "en",
-  "workbench.editor.tabActionUnpinVisibility": false,
-  "workbench.editor.tabActionCloseVisibility": false
+  "workbench.editor.tabActionUnpinVisibility": true,
+  "workbench.editor.tabActionCloseVisibility": true
 }
