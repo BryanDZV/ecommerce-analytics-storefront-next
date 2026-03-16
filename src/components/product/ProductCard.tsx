@@ -1,5 +1,5 @@
 import { Product } from '@/types/product';
-import { products } from '@/mocks/products';
+import { products } from '@/mocks/mockProducts';
 import Image from 'next/image';
 
 type ProductCardProps = {
