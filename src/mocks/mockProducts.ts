@@ -235,18 +235,22 @@ const rowData = [
 ];
 
 // Available local images assigned randomly
-const productImages = [
-  '/assets/products/hair-dryer.jpg',
-  '/assets/products/Telescope.jpg',
-  '/assets/products/Magnetic-Phone-Case.jpg',
-  '/assets/products/Hiking-Boots.webp',
-  '/assets/products/set-costura-viaje-blanco.jpg',
-  '/assets/products/Portable-Bluetooth-Keyboard.jpg',
-  '/assets/products/yoga-mat-carrier.webp',
-  '/assets/products/Handmade-Wooden-Utensil-Set.jpg',
-  '/assets/products/Waterproof-Rain-Boots.webp',
-  '/assets/products/Infrared-Space-Heater.jpg',
-];
+const getUrl = (url: string) => {
+  const images = [
+    url + 'hairDryer.jpg',
+    url + 'handmade.jpg',
+    url + 'heater.jpg',
+    url + 'hikingBoots.webp',
+    url + 'phoneCase.jpg',
+    url + 'portableBluetoothKeyboard.jpg',
+    url + 'setCosturaViajeBlanco.jpg',
+    url + 'siliconeFoodAndMuffinCups.webp',
+    url + 'telescope.jpg',
+    url + 'waterproofRainBoots.webp',
+    url + 'yogaMatCarrier.webp',
+  ];
+  return images[Math.floor(Math.random() * images.length)];
+};
 
 // Normalized mock product list consumed by the storefront.
 export const products: Product[] = rowData.map((product) => ({
@@ -255,7 +259,7 @@ export const products: Product[] = rowData.map((product) => ({
   description: String(product.description).trim(),
   price: Number(product.price),
   category: product.category as Product['category'],
-  image: productImages[Math.floor(Math.random() * productImages.length)],
+  image: getUrl('/assets/products/'),
   stock: Number(product.stock),
   rating: Number(product.rating),
   createdAt: String(product.createdAt).trim(),
