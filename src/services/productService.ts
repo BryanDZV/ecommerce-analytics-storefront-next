@@ -22,7 +22,6 @@ export const getProductById = (id: string): Product | undefined => {
 //function that gives an array with the products that belong to the categories selected by the user.
 
 export const getProductsByCategory = (categories: string[]): Product[] => {
-  return !categories || categories.length === 0
-    ? getProducts().data
-    : products.filter((p) => categories.includes(p.category));
+  if (categories.length === 0) return products;
+  return products.filter((p) => categories.includes(p.category));
 };

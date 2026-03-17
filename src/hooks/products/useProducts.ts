@@ -22,6 +22,7 @@ export const useProduct = (id: string) => {
     // Structure: [Domain, Action, ID]
     queryKey: ['products', 'detail', id],
     queryFn: () => getProductById(id),
+    enabled: !!id, // <---Only executed if the id has content
   });
 };
 

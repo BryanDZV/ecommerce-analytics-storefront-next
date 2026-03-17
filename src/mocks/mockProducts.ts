@@ -235,21 +235,22 @@ const rowData = [
 ];
 
 // Available local images assigned randomly
-const getUrl = (url: string) => {
+const getRandomProductImage = () => {
+  const baseUrl = '/assets/products/';
   const images = [
-    url + 'hairDryer.jpg',
-    url + 'handmade.jpg',
-    url + 'heater.jpg',
-    url + 'hikingBoots.webp',
-    url + 'phoneCase.jpg',
-    url + 'portableBluetoothKeyboard.jpg',
-    url + 'setCosturaViajeBlanco.jpg',
-    url + 'siliconeFoodAndMuffinCups.webp',
-    url + 'telescope.jpg',
-    url + 'waterproofRainBoots.webp',
-    url + 'yogaMatCarrier.webp',
+    'hairDryer.jpg',
+    'handmade.jpg',
+    'heater.jpg',
+    'hikingBoots.webp',
+    'phoneCase.jpg',
+    'portableBluetoothKeyboard.jpg',
+    'setCosturaViajeBlanco.jpg',
+    'siliconeFoodAndMuffinCups.webp',
+    'telescope.jpg',
+    'waterproofRainBoots.webp',
+    'yogaMatCarrier.webp',
   ];
-  return images[Math.floor(Math.random() * images.length)];
+  return baseUrl + images[Math.floor(Math.random() * images.length)];
 };
 
 // Normalized mock product list consumed by the storefront.
@@ -259,7 +260,7 @@ export const products: Product[] = rowData.map((product) => ({
   description: String(product.description).trim(),
   price: Number(product.price),
   category: product.category as Product['category'],
-  image: getUrl('/assets/products/'),
+  image: getRandomProductImage(),
   stock: Number(product.stock),
   rating: Number(product.rating),
   createdAt: String(product.createdAt).trim(),
