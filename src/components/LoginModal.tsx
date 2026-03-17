@@ -35,7 +35,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         <input
                             className="loginInput" 
                             type="email"
-                            placeholder="Username"
+                            placeholder="Email"
                         />
                         <input
                             className="loginInput" 
