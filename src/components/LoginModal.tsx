@@ -11,7 +11,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
     return (
         <div className="loginOverlay">
-            <div className="loginModal">
+            <div className="loginModal" role="dialog">
                 <button 
                 type="button" 
                 className="loginModalClose"
@@ -22,15 +22,15 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
                 <div className="loginImageBox">
                     <FlexibleImage
-                        src="/login-image.png"
-                        alt="login-image"
+                        src="/loginImage.png"
+                        alt="loginImage"
                         fill={true}
                         className="loginModalImage"
                     />
                 </div>
 
                 <div className="loginFormBox">
-                    <h2 className="loginModalTittle">User Login</h2>
+                    <h2 className="loginModalTitle">User Login</h2>
                     <form className="loginForm">
                         <input
                             className="loginInput" 
