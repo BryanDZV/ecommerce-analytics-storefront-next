@@ -5,7 +5,8 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
-  loading: () => <p>Cargando...</p>,
+  // In case we need a loading effect
+  // loading: () => 
 
   // Disables Server-side rendering
   ssr: false,
