@@ -1,14 +1,15 @@
+'use client';
 import Image from 'next/image';
 import Filtericon from './buttons/FilterIcon';
+// import { useNavigate } from 'react-router-dom';
+import Link from 'next/link';
 
 export default function Searchbar() {
   return (
     <>
       <section>
         <div className="title-search">
-          {/* <div className="filter-box"> */}
           <Filtericon></Filtericon>
-          {/* </div> */}
 
           <div className="title-box">
             <div className="glass-search">
@@ -20,7 +21,10 @@ export default function Searchbar() {
               />
             </div>
             <div className="cart-user">
-              <img className="filter-image" src="/shopping-cart.png" alt="" />
+              <Link href="/shopcart">
+                <img className="filter-image" src="/shopping-cart.png" alt="" />
+              </Link>
+
               <img className="filter-image" src="/person.png" alt="" />
             </div>
           </div>
