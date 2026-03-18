@@ -18,9 +18,7 @@ export default function Searchbar() {
     <>
       <section>
         <div className="title-search">
-          {/* <div className="filter-box"> */}
           <Filtericon></Filtericon>
-          {/* </div> */}
 
           <div className="title-box">
             <div className="glass-search">

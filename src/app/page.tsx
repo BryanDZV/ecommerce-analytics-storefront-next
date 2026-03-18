@@ -4,6 +4,7 @@ import Searchbar from '@/components/Searchbar';
 import Footer from '@/components/Footer';
 import ProductGrid from '@/components/product/ProductGrid';
 import SideBar from '@/components/Sidebar';
+import Link from 'next/link';
 
 export default function Page() {
   return (
