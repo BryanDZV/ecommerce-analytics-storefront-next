@@ -1,20 +1,27 @@
+import { Product } from '@/types/product';
 import { products } from '@/mocks/mockProducts';
+import { PaginatedResponse } from '@/types/paginatedResponse';
 
 //function to get all products from the simulated database
-export const getProducts = () => {
-  return products;
+export const getProducts = (): PaginatedResponse<Product> => {
+  return {
+    data: products,
+    totalCount: products.length,
+    page: 1,
+    totalPages: 1,
+    hasNextPage: false,
+  };
 };
 
 //function to get a product and view its details
-export const getProductById = (id: string) => {
+export const getProductById = (id: string): Product | undefined => {
   return products.find((p) => {
     return p.id === id;
   });
 };
+//function that gives an array with the products that belong to the categories selected by the user.
 
-//function that gives an array with the products of a specific category
-export const getProductsByCategory = (category: string) => {
-  return products.filter((p) => {
-    return p.category === category;
-  });
+export const getProductsByCategory = (categories: string[]): Product[] => {
+  if (categories.length === 0) return products;
+  return products.filter((p) => categories.includes(p.category));
 };

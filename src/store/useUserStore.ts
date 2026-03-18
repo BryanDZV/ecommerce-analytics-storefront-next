@@ -3,7 +3,6 @@ import type { User } from '../types/user'
 
 interface UserStore {
     user: User | null
-    isAuthenticated: boolean
     login: (data: User) => void
     logout: () => void
 }
@@ -16,18 +15,15 @@ const demoLogin: User = {
 
 export const useUserStore  = create<UserStore>((set) => ({
     user: null,
-    isAuthenticated: false,
 
     login: (data) => 
         set({
             user: data,
-            isAuthenticated: true,
         }),
 
     logout: () =>
         set({
             user: null,
-            isAuthenticated: false,
         })    
 }))
 
