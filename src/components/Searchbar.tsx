@@ -22,7 +22,7 @@ export default function Searchbar() {
 
           <div className="title-box">
             <div className="glass-search">
-              <img className="search-image" src="/search.png" alt="" />
+              <img className="search-image" src="/search.png" alt="Search" />
               <input
                 className="input-search"
                 type="text"
@@ -33,7 +33,7 @@ export default function Searchbar() {
               />
             </div>
             <div className="cart-user">
-              <img className="filter-image" src="/shopping-cart.png" alt="" />
+              <img className="filter-image" src="/shopping-cart.png" alt="Search" />
               <button type="button" onClick={() => setIsLoginOpen(true)}>
                 <img
                   className="filter-image"
