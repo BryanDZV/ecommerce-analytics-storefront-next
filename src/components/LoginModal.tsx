@@ -3,11 +3,17 @@
 import FlexibleImage from '@/app/components/FlexibleImage'
 import { demoLogin, demoPassword, useUserStore } from '@/store/useUserStore'
 import React, { useState } from 'react'
+import * as z from 'zod'
 
 interface LoginModalProps {
     isOpen: boolean
     onClose: () => void
 }
+
+const loginSchema = z.object({
+    email: z.string().email('Enter a valid email'),
+    password: z.string().min(4, 'Password must be at least 4 characters'),
+})
 
 export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
     const [email, setEmail] = useState('')
@@ -23,8 +29,10 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        if (!email || !password) {
-            setError('Insert email and password')
+        const result = loginSchema.safeParse({ email, password })
+
+        if (!result.success) {
+            setError(result.error.issues[0].message)
             return
         }
 
@@ -97,7 +105,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
-                        {error && <p>{error}</p>}
+                        {error && <p className='loginError'>{error}</p>}
 
                         <button className="loginButton" type="submit">
                             Login

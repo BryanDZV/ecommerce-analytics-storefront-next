@@ -16,6 +16,7 @@
     "postcss": "^8.5.8",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "zod": "^4.3.6",
     "zustand": "^5.0.12"
   },
   "devDependencies": {

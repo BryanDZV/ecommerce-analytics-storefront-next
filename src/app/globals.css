@@ -232,6 +232,12 @@
     text-align: center;
   }
 
+  .loginError {
+    background-color: #f8ece8;
+    text-align: center;
+    color: #8a4b3d;
+  }
+
   /* PRODUCT GRID */
 
   .grid-section {
