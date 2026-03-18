@@ -217,6 +217,21 @@
     border-radius: 14px;
   }
 
+  .loginAuthenticatedBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .loginAuthenticatedBox p {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2f2f2a;
+    text-align: center;
+  }
+
   /* PRODUCT GRID */
 
   .grid-section {
