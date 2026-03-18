@@ -3,10 +3,10 @@
 import Filtericon from './buttons/FilterIcon';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-
+// import Link from 'next/link';
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
   // In case we need a loading effect
-  // loading: () => 
+  // loading: () =>
 
   // Disables Server-side rendering
   ssr: false,
@@ -30,7 +30,10 @@ export default function Searchbar() {
               />
             </div>
             <div className="cart-user">
+              {/* <Link href="/shopcart"> */}
               <img className="filter-image" src="/shopping-cart.png" alt="" />
+              {/* </Link> */}
+
               <button type="button" onClick={() => setIsLoginOpen(true)}>
                 <img
                   className="filter-image"
