@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
   // In case we need a loading effect
-  // loading: () => 
+  // loading: () =>
 
   // Disables Server-side rendering
   ssr: false,
@@ -27,6 +27,9 @@ export default function Searchbar() {
                 className="input-search"
                 type="text"
                 placeholder="Busca tu producto"
+                // Properties to improve web accessibility
+                aria-label='Busca tu producto'
+                title='Busca tu producto'
               />
             </div>
             <div className="cart-user">
