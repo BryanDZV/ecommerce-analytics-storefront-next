@@ -1,7 +1,12 @@
+'use client'
+
 import Image from 'next/image';
 import Filtericon from './buttons/FilterIcon';
+import LoginModal from './LoginModal'
+import { useState } from 'react';
 
 export default function Searchbar() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
   return (
     <>
       <section>
@@ -21,7 +26,9 @@ export default function Searchbar() {
             </div>
             <div className="cart-user">
               <img className="filter-image" src="/shopping-cart.png" alt="" />
-              <img className="filter-image" src="/person.png" alt="" />
+              <button type='button' onClick={() => setIsLoginOpen(true)}>
+              <img className="filter-image" src="/person.png" alt="user-icon" />
+              </button>
             </div>
           </div>
           {/* medio */}
@@ -31,6 +38,10 @@ export default function Searchbar() {
           </div>
         </div>
       </section>
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+      />  
     </>
   );
 }
