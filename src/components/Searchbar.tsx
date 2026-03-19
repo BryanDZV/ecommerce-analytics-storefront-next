@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
   // In case we need a loading effect
-  // loading: () => 
+  // loading: () =>
 
   // Disables Server-side rendering
   ssr: false,
@@ -22,15 +22,18 @@ export default function Searchbar() {
 
           <div className="title-box">
             <div className="glass-search">
-              <img className="search-image" src="/search.png" alt="" />
+              <img className="search-image" src="/search.png" alt="Search" />
               <input
                 className="input-search"
                 type="text"
                 placeholder="Busca tu producto"
+                // Properties to improve web accessibility
+                aria-label='Busca tu producto'
+                title='Busca tu producto'
               />
             </div>
             <div className="cart-user">
-              <img className="filter-image" src="/shopping-cart.png" alt="" />
+              <img className="filter-image" src="/shopping-cart.png" alt="Search" />
               <button type="button" onClick={() => setIsLoginOpen(true)}>
                 <img
                   className="filter-image"

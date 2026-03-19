@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    <header className="header">
+    <header className="header" role='banner'>
       <div className="main-container-header">
         <div className="container-logo">
           {/* <hr className="first-line" /> */}
           <div className="logo-image">
-            <img src="/Nextcom.png" alt="" />
+            <img src="/Nextcom.png" alt="Nextcom" />
           </div>
         </div>
         <div className="description-box">
