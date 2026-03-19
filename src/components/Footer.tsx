@@ -2,7 +2,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <>
-      <footer className="footer">
+      <footer className="footer" role='contentinfo'>
         <div className="footer-components">
           <div>
             <img className="footer-image" src="./Nextcom.png" alt="Nextcom" />
