@@ -1,31 +1,38 @@
 import { create } from'zustand'
 import type { User } from '../types/user'
-
+import { persist } from 'zustand/middleware'
 interface UserStore {
     user: User | null
     login: (data: User) => void
     logout: () => void
 }
 
-const demoLogin: User = {
+export const demoLogin: User = {
     id: '1',
-    name: 'user1',
-    email: 'user1@globant.com'
+    name: 'demouser',
+    email: 'demouser@globant.com',
 }
 
-export const useUserStore  = create<UserStore>((set) => ({
-    user: null,
+export const demoPassword = 'demo1234'
 
-    login: (data) => 
-        set({
-            user: data,
+export const useUserStore  = create<UserStore>() (
+    persist(
+        (set) => ({
+            user:null,
+
+            login: (data) =>
+                set({
+                    user: data,
+                }),
+
+            logout: () =>
+                set({
+                    user: null,
+                }),   
         }),
-
-    logout: () =>
-        set({
-            user: null,
-        })    
-}))
-
-
+        {
+            name: 'user-storage',
+        }
+    )
+)
 

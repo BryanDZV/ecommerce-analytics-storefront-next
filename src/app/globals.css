@@ -12,6 +12,11 @@
   }
 
   .mainContainerHeader {
+    @apply relative w-full overflow-hidden;
+  }
+
+  .main-container-header {
+    @apply relative z-10 h-full;
     padding-top: 20px;
   }
   .descriptionHeaderBox {
@@ -113,7 +118,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
+  }
 
   .loginModal {
     position: relative;
@@ -125,7 +130,7 @@
     overflow: hidden;
     display: flex;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
+  }
 
   .loginModalClose {
     position: absolute;
@@ -136,7 +141,7 @@
     font-size: 28px;
     color: #4d4d45;
     cursor: pointer;
-}
+  }
 
   .loginImageBox {
     width: 50%;
@@ -199,6 +204,27 @@
     color: #44443d;
     border: 1px solid #d8d5c8;
     border-radius: 14px;
+  }
+
+  .loginAuthenticatedBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .loginAuthenticatedBox p {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2f2f2a;
+    text-align: center;
+  }
+
+  .loginError {
+    background-color: #f8ece8;
+    text-align: center;
+    color: #8a4b3d;
   }
 
   /* PRODUCT GRID */
@@ -288,7 +314,7 @@ padding: 90px;
 
 /* FOOTER */
 
-.footer {
+  .footer {
     background-color: #b9b99b;
 }
 
@@ -313,6 +339,12 @@ padding: 90px;
   padding: 20px;
 }
 
+  .footer-components {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #b9b99b;
+    padding: 20px;
+  }
 
 .footerBottom {
   border-top: 1px solid black;
@@ -332,7 +364,13 @@ padding: 90px;
 .socialMediaImages  {
  width: 30px;
 
-}
+  .footer-bottom {
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 0 5% 0 5%;
+  }
 
 /* SHOPCART PAGE */
 
