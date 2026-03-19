@@ -3,7 +3,7 @@
 import Filtericon from './buttons/FilterIcon';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-// import Link from 'next/link';
+import Link from 'next/link';
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
   // In case we need a loading effect
   // loading: () =>
@@ -17,26 +17,26 @@ export default function Searchbar() {
   return (
     <>
       <section>
-        <div className="title-search">
+        <div className="titleSearch">
           <Filtericon></Filtericon>
 
-          <div className="title-box">
-            <div className="glass-search">
-              <img className="search-image" src="/search.png" alt="" />
+          <div className="titleBox">
+            <div className="glassSearch">
+              <img className="searchImage" src="/search.png" alt="" />
               <input
-                className="input-search"
+                className="inputSearch"
                 type="text"
                 placeholder="Busca tu producto"
               />
             </div>
-            <div className="cart-user">
-              {/* <Link href="/shopcart"> */}
-              <img className="filter-image" src="/shopping-cart.png" alt="" />
-              {/* </Link> */}
+            <div className="cartUser">
+              <Link href="/shopcart">
+                <img className="filterImage" src="/shopping-cart.png" alt="" />
+              </Link>
 
               <button type="button" onClick={() => setIsLoginOpen(true)}>
                 <img
-                  className="filter-image"
+                  className="filterImage"
                   src="/person.png"
                   alt="user-icon"
                 />
@@ -45,7 +45,7 @@ export default function Searchbar() {
           </div>
           {/* medio */}
 
-          <div className="border-bottom-box-search">
+          <div className="borderBottomBoxSearch">
             <hr />
           </div>
         </div>

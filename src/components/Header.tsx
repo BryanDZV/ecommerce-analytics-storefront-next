@@ -3,14 +3,14 @@ import Image from 'next/image';
 export default function Header() {
   return (
     <header className="header">
-      <div className="main-container-header">
-        <div className="container-logo">
+      <div className="mainContainerHeader">
+        <div className="containerLogo">
           {/* <hr className="first-line" /> */}
-          <div className="logo-image">
+          <div className="logoImage">
             <img src="/Nextcom.png" alt="" />
           </div>
         </div>
-        <div className="description-box">
+        <div className="descriptionHeaderBox">
           <hr />
           <p>
             Add here any awards or things you want to highlight. Could also be a

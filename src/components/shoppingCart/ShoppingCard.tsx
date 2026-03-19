@@ -15,19 +15,18 @@ export default function ShoppingCard({
 }: ProductCardProps) {
   return (
     <>
-      <div className="main-shop-cart">
-        <div className="product-shopimage">
+      <div className="mainShopCart">
+        <div className="productShopImage">
           <FlexibleImage
-            className="product-image-shopcart"
+            className="productImageShopcart"
             src={image}
             alt={productName}
-            width={200}
-            height={200}
+            fill
           />
         </div>
         <div>
-          <div className="nameDescription">
-            <div>
+          <div className="nameDescriptionBox">
+            <div className="nameDescriptionText">
               <strong>{productName}</strong>
               <p>{description}</p>
             </div>
@@ -48,7 +47,8 @@ export default function ShoppingCard({
             <span>Subtotal: </span>
             <span>{price}€</span>
           </div>
-          <div>
+          <hr className="separationDelivery" />
+          <div className="deliveryDescription">
             <span>Entrega en 2-3 dias laborables</span>
           </div>
         </div>

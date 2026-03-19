@@ -1,9 +1,12 @@
+import FlexibleImage from '@/app/components/FlexibleImage';
+import ShoppingCard from './ShoppingCard';
+
 export default function CheckoutCart() {
   return (
     <>
       <section className="checkoutMain">
         <div className="checkoutBox">
-          <h2>Resumen del pedido</h2>
+          <h2 className="summaryOrder">Resumen del pedido</h2>
           <div className="checkoutProductImage">
             <img src="/dosificador-rosa-resina-.jpg" alt="" />
             <img src="/dosificador-rosa-resina-.jpg" alt="" />
@@ -12,26 +15,39 @@ export default function CheckoutCart() {
           <div>
             <div className="checkoutPrices">
               <span>Precio de referencia: </span>
-              <span>3.30€</span>
+              <span>30.30€</span>
             </div>
             <div className="checkoutPrices">
-              <span>Descuentos: </span>
-              <span>-1.30€</span>
+              <span>Descuento: </span>
+              <span>-5.30€</span>
             </div>
             <div className="checkoutPrices">
-              <span>Subtotal: </span>
-              <span>2.00€</span>
+              <span>Gastos de envio: </span>
+              <span>3.50€</span>
+            </div>
+            <div className="checkoutPrices">
+              <span>
+                <strong>Subtotal: </strong>
+              </span>
+              <span>
+                <strong>28.50€</strong>
+              </span>
             </div>
           </div>
           <div className="confirmPurchase">
-            <button>Comprar Ahora 3 articulos</button>
+            <button>
+              <strong>Comprar</strong>
+            </button>
           </div>
         </div>
-        <div>
+        <div className="paymentMethodBackground">
           <h1>Aceptamos</h1>
-          <p>tarjeta</p>
-          <p>Tarjeta</p>
-          <p>Tarjeta</p>
+          <div className="paymentMethod">
+            <img src="/visa.png" alt="" />
+            <img src="/MasterCard.png" alt="" />
+            <img src="/bizum.png" alt="" />
+            <img src="" alt="" />
+          </div>
         </div>
       </section>
     </>
