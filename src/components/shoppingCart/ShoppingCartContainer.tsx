@@ -6,7 +6,7 @@ export default function ShoppingCartContainer() {
   return (
     <>
       <div className="ShoppingCartMainContainer">
-        <section className="main-shop-container">
+        <section className="mainShopContainer">
           {products.slice(3, 5).map((product) => (
             <div className="" key={product.id}>
               <ShoppingCard

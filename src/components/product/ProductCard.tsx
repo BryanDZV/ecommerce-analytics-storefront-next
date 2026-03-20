@@ -18,10 +18,10 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <>
-      <section className="product-card">
-        <div className="background-card">
+      <section className="productCard">
+        <div className="backgroundCard">
           <FlexibleImage
-            className="product-image"
+            className="productImage"
             src={image}
             alt={productName}
             fill

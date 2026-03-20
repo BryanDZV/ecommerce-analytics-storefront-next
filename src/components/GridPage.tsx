@@ -5,7 +5,7 @@ import SideBar from './Sidebar';
 export default function GridPage() {
   return (
     <>
-      <div className="gridPage">
+      <div className="mainGridPage">
         <div className="sidebar-grid">
           <SideBar></SideBar>
         </div>
