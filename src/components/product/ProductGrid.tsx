@@ -1,20 +1,13 @@
-'use client';
-// import Image from 'next/image';
+import Image from 'next/image';
 import ProductCard from './ProductCard';
 import { products } from '@/mocks/mockProducts';
-import { useListProducts } from '@/hooks/products/useProducts';
-
 export default function ProductGrid() {
-  const { data } = useListProducts();
-
   return (
     <>
-      <section className="gridSection">
-        {/* <div className="grid-box"> */}
+      <section className="grid-section">
         {products.map((product) => (
-          <div className="gridBox" key={product.id}>
+          <div className="grid-box" key={product.id}>
             <ProductCard
-              // key={product.id}
               productName={product.name}
               description={product.description}
               price={product.price}
