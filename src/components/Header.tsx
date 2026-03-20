@@ -15,14 +15,14 @@ export default function Header() {
         />
       </div>
       
-      <div className="main-container-header">
-        <div className="container-logo">
+      <div className="mainContainerHeader">
+        <div className="containerLogo">
           {/* <hr className="first-line" /> */}
           <div className="logo-image">
             <img src="/Nextcom.png" alt="Nextcom" />
           </div>
         </div>
-        <div className="description-box">
+        <div className="descriptionBox">
           <hr />
           <p>
             Add here any awards or things you want to highlight. Could also be a
