@@ -5,7 +5,7 @@ export default function Header() {
     <header className="header">
       <div className="mainContainerHeader">
         <div className="containerLogo">
-          {/* <hr className="first-line" /> */}
+          {/* comentarios <hr className="first-line" /> */}
           <div className="logoImage">
             <img src="/Nextcom.png" alt="" />
           </div>
