@@ -3,7 +3,7 @@
 import Filtericon from './buttons/FilterIcon';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
+
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
   // In case we need a loading effect
   // loading: () =>
@@ -17,14 +17,14 @@ export default function Searchbar() {
   return (
     <>
       <section>
-        <div className="titleSearch">
+        <div className="title-search">
           <Filtericon></Filtericon>
 
-          <div className="titleBox">
-            <div className="glassSearch">
-              <img className="searchImage" src="/search.png" alt="" />
+          <div className="title-box">
+            <div className="glass-search">
+              <img className="search-image" src="/search.png" alt="Search" />
               <input
-                className="inputSearch"
+                className="input-search"
                 type="text"
                 placeholder="Busca tu producto"
                 // Properties to improve web accessibility
@@ -32,14 +32,11 @@ export default function Searchbar() {
                 title='Busca tu producto'
               />
             </div>
-            <div className="cartUser">
-              <Link href="/shopcart">
-                <img className="filterImage" src="/shopping-cart.png" alt="" />
-              </Link>
-
+            <div className="cart-user">
+              <img className="filter-image" src="/shopping-cart.png" alt="Search" />
               <button type="button" onClick={() => setIsLoginOpen(true)}>
                 <img
-                  className="filterImage"
+                  className="filter-image"
                   src="/person.png"
                   alt="user-icon"
                 />
@@ -48,7 +45,7 @@ export default function Searchbar() {
           </div>
           {/* medio */}
 
-          <div className="borderBottomBoxSearch">
+          <div className="border-bottom-box-search">
             <hr />
           </div>
         </div>

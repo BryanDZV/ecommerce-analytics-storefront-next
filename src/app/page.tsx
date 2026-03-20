@@ -3,14 +3,13 @@ import Header from '../components/Header';
 import Searchbar from '@/components/Searchbar';
 import Footer from '@/components/Footer';
 import ProductGrid from '@/components/product/ProductGrid';
-import GridPage from '@/components/GridPage';
 import SideBar from '@/components/Sidebar';
 import Link from 'next/link';
 
 export default function Page() {
   return (
     <>
-      <body className="bodyMain">
+      <body className="bg-[#e6e6e6]">
         {/* HEADER */}
         <Header></Header>
 
@@ -18,11 +17,10 @@ export default function Page() {
         <Searchbar></Searchbar>
 
         {/* <GridPage></GridPage> */}
-        {/* <SideBar></SideBar> */}
+        <SideBar></SideBar>
 
         {/* PLANTILLA GRID */}
-        <GridPage></GridPage>
-        {/* <ProductGrid></ProductGrid> */}
+        <ProductGrid></ProductGrid>
 
         {/* FOOTER */}
         <Footer></Footer>
