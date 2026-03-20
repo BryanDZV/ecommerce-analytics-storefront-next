@@ -3,6 +3,11 @@ import FlexibleImage from '@/app/components/FlexibleImage';
 export default function Header() {
   return (
     <header className="header">
+      <div className="mainContainerHeader">
+        <div className="containerLogo">
+          {/* <hr className="first-line" /> */}
+          <div className="logoImage">
+            <img src="/Nextcom.png" alt="" />
       {/* --- BACKGROUND IMAGE --- */}
       <div className="absolute inset-0 z-0">
         <FlexibleImage
@@ -22,7 +27,7 @@ export default function Header() {
             <img src="/Nextcom.png" alt="Nextcom" />
           </div>
         </div>
-        <div className="description-box">
+        <div className="descriptionHeaderBox">
           <hr />
           <p>
             Add here any awards or things you want to highlight. Could also be a

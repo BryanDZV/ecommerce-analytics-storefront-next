@@ -16,7 +16,6 @@ const geistSans = Geist({
   subsets: ['latin'],
 });
 
-
 export const metadata: Metadata = {
   title: 'Next Commerce',
   description: 'Crafted with ❤️',
@@ -29,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunitoSans.className} ${geistSans.variable} antialiased`}>
+      <body
+        className={`${nunitoSans.className} ${geistSans.variable} antialiased`}
+      >
         <QueryProvider>{children}</QueryProvider>
       </body>
     </html>

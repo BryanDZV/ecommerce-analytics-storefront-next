@@ -2,10 +2,10 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <>
-      <footer className="footer" role='contentinfo'>
-        <div className="footer-components">
+      <footer className="footer">
+        <div className="footerComponents">
           <div>
-            <img className="footer-image" src="./Nextcom.png" alt="Nextcom" />
+            <img className="footerImage" src="./Nextcom.png" alt="logo" />
           </div>
           <div className="">
             <div>
@@ -24,22 +24,18 @@ export default function Footer() {
               <p>Accesories</p>
             </div>
           </div>
-          <div className="social-media-component">
-            <img
-              className="social-media-images"
-              src="./placeholder.png"
-              alt="Social Media"
-            />
-            <img className="social-media-images" src="./instagram.png" alt="Instagram" />
-            <img className="social-media-images" src="./facebook.png" alt="Facebook" />
+          <div className="socialMediaComponent">
+            <img className="socialMediaImages" src="./placeholder.png" alt="" />
+            <img className="socialMediaImages" src="./instagram.png" alt="" />
+            <img className="socialMediaImages" src="./facebook.png" alt="" />
           </div>
         </div>
         {/* <hr className="hr-bottom" /> */}
-        <div className="footer-bottom">
-          <div className="text-bottom">
+        <div className="footerBottom">
+          <div className="textBottom">
             <p>©2026 | Technologies</p>
           </div>
-          <div className="text-bottom">
+          <div className="textBottom">
             <span>Privacy</span>
             <span>Accesibility</span>
             <span>Terms</span>
