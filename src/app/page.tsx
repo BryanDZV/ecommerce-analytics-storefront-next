@@ -13,7 +13,7 @@ export default function Page() {
       <body className="bodyMain">
         {/* HEADER */}
         <Header></Header>
-
+        
         {/* BOTON BUSQUEDA, FILTROS Y CARRITO */}
         <Searchbar></Searchbar>
 

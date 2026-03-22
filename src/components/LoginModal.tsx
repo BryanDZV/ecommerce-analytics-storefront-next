@@ -4,6 +4,8 @@ import FlexibleImage from '@/app/components/FlexibleImage'
 import { demoLogin, demoPassword, useUserStore } from '@/store/useUserStore'
 import React, { useState } from 'react'
 import * as z from 'zod'
+import { sileo } from 'sileo'
+import { useNotificationStore } from '@/store/useNotificationStore'
 
 interface LoginModalProps {
     isOpen: boolean
@@ -11,63 +13,74 @@ interface LoginModalProps {
 }
 
 const loginSchema = z.object({
-    email: z.string().email('Enter a valid email'),
+    email: z.string().email('Enter valid email'),
     password: z.string().min(4, 'Password must be at least 4 characters'),
 })
 
 export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
     
     const user = useUserStore((state) => state.user)
     const login = useUserStore((state) => state.login)
     const logout = useUserStore((state) => state.logout)
 
+    const startLoading = useNotificationStore((state) => state.startLoading)
+    const showSuccess = useNotificationStore((state) => state.showSuccess)
+    const showError = useNotificationStore((state) => state.showError) 
+    const reset = useNotificationStore((state) => state.reset)
+
     if (!isOpen) return null
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+
+        reset()
 
         const result = loginSchema.safeParse({ email, password })
 
         if (!result.success) {
-            setError(result.error.issues[0].message)
+            const message = result.error.issues[0].message
+            showError(message)
+            sileo.error({title: message})
             return
         }
 
+        startLoading()
+
+        await new Promise((resolve) => setTimeout(resolve, 600))
+
         if (email === demoLogin.email && password === demoPassword) {
             login(demoLogin)
-            setError('')
+
+            const message = 'Login successful'
+            showSuccess(message)
+            sileo.success({title: message})
+
             setEmail('')
             setPassword('')
             return
         }
 
-        setError('Incorrect email or password')
+        const message = 'Incorrect email or password'
+        showError(message)
+        sileo.error({title: message})
     }
 
     const handleLogout = () => {
         logout()
-        setEmail('')
-        setPassword('')
-        setError('')
+        reset()
+        sileo.success({title: 'Logged out'})
     }
 
     return (
         <div className="loginOverlay">
             <div className="loginModal" role="dialog">
-                <button 
-                type="button" 
-                className="loginModalClose"
-                onClick={onClose}
-                >
-                x
-                </button>
+                <button type="button" className="loginModalClose"onClick={onClose}> x </button>
 
                 <div className="loginImageBox">
                     <FlexibleImage
-                        src="/loginImage.png"
+                        src="/login.png"
                         alt="loginImage"
                         fill={true}
                         className="loginModalImage"
@@ -75,18 +88,12 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 </div>
 
                 <div className="loginFormBox">
-                    <h2 className="loginModalTitle">User Login</h2>
+                    <h2 className="loginModalTitle">Sign up</h2>
                     
                     {user ? (
                         <div className='loginAuthenticatedBox'>
                             <p>You are signed in as {user.email}</p>
-                            <button 
-                            type='button'
-                            className='loginButton'
-                            onClick={handleLogout}
-                            >
-                            Log out
-                            </button>
+                            <button type='button'className='loginButton'onClick={handleLogout}> Log out </button>
                         </div>
                     ) : (        
                     <form className="loginForm" onSubmit={handleSubmit}>
@@ -95,29 +102,25 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             type="email"
                             placeholder="Email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }}
                         />
                         <input
                             className="loginInput" 
                             type="password" 
                             placeholder="Password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => {
+                                setPassword(e.target.value)
+                            }}
                         />
 
-                        {error && <p className='loginError'>{error}</p>}
+                        <button className="loginButton" type="submit"> Login </button>
 
-                        <button className="loginButton" type="submit">
-                            Login
-                        </button>
+                        <button className="loginButton2" type="button"> I forgot my password. Click here to reset </button>
 
-                        <button className="loginButton2" type="button">
-                            I forgot my password. Click here to reset
-                        </button>
-
-                        <button className="loginButton2" type="button">
-                            Register New Account
-                        </button>
+                        <button className="loginButton2" type="button"> Register New Account </button>
                     </form>
                     )}
                 </div>
