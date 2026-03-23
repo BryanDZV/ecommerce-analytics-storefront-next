@@ -1,12 +1,17 @@
-import Image from 'next/image';
-import SideBar from '../Sidebar';
-import toggleFilters from '../Sidebar';
+'use client';
+// import Image from 'next/image';
+// import SideBar from '../Sidebar';
+// import toggleFilters from '../Sidebar';
 
 export default function Filtericon() {
+  const abrirDesdeElHeader = () => {
+    document.getElementById('sidebar-movil')?.classList.add('open');
+    document.getElementById('overlay-movil')?.classList.add('open');
+  };
   return (
     <>
       <div className="filterBox">
-        <button className="filterButton">
+        <button className="filterButton" onClick={abrirDesdeElHeader}>
           <img className="filterImage" src="/filter.png" alt="filter image" />
         </button>
       </div>

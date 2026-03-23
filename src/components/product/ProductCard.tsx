@@ -39,11 +39,13 @@ export default function ProductCard({
           <strong>
             <p>{price}€</p>
           </strong>
+        </div>
+        <div className="addToCartContainer">
           <button
             className="addToCartButton"
             onClick={() => addToCart(product)}
           >
-            Añadir al carrito
+            <img src="/add-to-cart.png" alt="add to cart" />
           </button>
         </div>
       </section>

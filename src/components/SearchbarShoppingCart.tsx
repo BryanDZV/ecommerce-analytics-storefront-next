@@ -5,14 +5,10 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
-  // In case we need a loading effect
-  // loading: () =>
-
-  // Disables Server-side rendering
   ssr: false,
 });
 
-export default function Searchbar() {
+export default function SearchbarShoppingCart() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   return (
     <>
@@ -32,12 +28,8 @@ export default function Searchbar() {
               />
             </div>
             <div className="cartUser">
-              <Link href="/shopcart">
-                <img
-                  className="imagesOfSearchbar"
-                  src="/shopping-cart.png"
-                  alt=""
-                />
+              <Link href="/app">
+                <img className="imagesOfSearchbar" src="/home.png" alt="" />
               </Link>
 
               <button type="button" onClick={() => setIsLoginOpen(true)}>

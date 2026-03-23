@@ -101,6 +101,13 @@
     border-bottom-right-radius: 10px;
   }
 
+  .imagesOfSearchbar {
+    width: 3rem;
+    min-width: 1rem;
+    padding: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
   .searchImage {
     width: 1.5rem;
     margin: 2%;
@@ -242,27 +249,56 @@
     height: 12rem;
   }
 
+  .addToCartContainer {
+    display: flex;
+    justify-content: end;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .addToCartButton {
+    width: 30px;
+  } 
+
+
   /* SIDEBAR */
 
+
 .mainShopFilterContainer {
-  background-color: #c5c5a7;
-  margin: 12% 3% 0% 0%;
+  background-color: #c5c5a7ea;
+  /* margin: 12% 3% 0% 0%; */
   border-radius: 10px;
   border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
+  box-shadow: 0px 5px 15px #4444443c;
+  position: sticky;
+  top: 20px; /* Margen superior cuando se queda pegado. Ajusta según la altura de tu header */
+  height: fit-content; /* IMPORTANTE: Para que sticky funcione, no puede ocupar el 100% de la altura */
+  max-height: calc(100vh - 40px); /* Evita que crezca más que la pantalla, permite scroll interno si hay muchos filtros */
+  overflow-y: auto; /* Muestra barra de scroll si los filtros son muy largos */
+  z-index: 10; /* Asegura que quede por debajo del header si este tiene un z-index mayor */
+  
+  min-width: 20%;
+  min-width: 100%;
+  margin-bottom: 20px;
+}
+
+.mainShopFilterContainer hr {
+  color: #d4d4c1;
 }
 
 .filtersSection {
   display: flex;
   flex-direction: column;
   margin-left:20%;
+  margin-bottom: 20%;
 
 }
 
 .filtersSection input {
-padding: 90px;
-
+ padding: 90px;
 }
+
 
 .filterTitle {
   display: flex;
@@ -275,12 +311,34 @@ padding: 90px;
 }
 
 .priceFilter {
+  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 20px;
+  background-color: #b9b99b;
+  padding: 20px;
+  border-radius: 10px;
 }
 
+.alphabeticOrder {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.alphabeticOrder button {
+  background-color: #d4d4c1;
+  box-shadow: 0px 5px 15px #4444443c;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+
+.titleFilter {
+  margin-top: 20px;
+}
 
 /* MAIN GRID PAGE */
 .mainGridPage {
@@ -360,7 +418,7 @@ padding: 90px;
   align-items: center;
   
   box-shadow: 10px 0px 30px 0px rgba(118, 106, 106, 0.408);
-    border-top-left-radius: 30px;
+  border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   /* padding: 20px; */
   /* width: 80%; */
@@ -478,6 +536,25 @@ padding: 90px;
   width: 100px;
 }
 
+.sidebar-grid {
+  transition: transform 0.3s ease-in-out; /* Animación suave al abrir/cerrar */
+}
+
+.filterOverlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  inset: 0;
+  background-color: rgba(60, 60, 50, 0.5); /* Oscurece la pantalla usando tonos de tu diseño */
+  z-index: 1000;
+}
+
+.closeFilterBtnMobile {
+  display: none; /* Oculto en PC */
+}
+
+
+
+
 /* MOBILE BREAKPOINT*/
 
 @media (max-width: 576px) {
@@ -521,7 +598,77 @@ padding: 90px;
         grid-template-columns: repeat(1,3fr);
         
     }
+
+    /* AGREGADO */
+
+  .mainGridPage {
+    display: block; 
+  }
+
+  
+  .sidebar-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: #463f3f63; 
+    z-index: 1001; 
+    overflow-y: auto;
+    transform: translateX(-100%); 
+    box-shadow: 5px 0 20px rgba(0,0,0,0.3);
+  }
+
+  .sidebar-grid.open {
+    transform: translateX(0); 
+  }
+
+ 
+  .filterOverlay.open {
+    display: block;
+  }
+
+
+  .mainShopFilterContainer {
+    min-width: 100%;
+    border-radius: 0; 
+    box-shadow: none;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 10px;
+  }
+
+
+  .closeFilterBtnMobile {
+    display: block;
+    background-color: #efeee6;
+    color: #44443d;
+    border: 1px solid #d8d5c8;
+    padding: 12px;
+    margin: 10px 20px 20px 20px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    width: calc(100% - 40px);
+    text-align: center;
+  }
+
+  .filterBox {
+    position: fixed;
+    top: 250px; 
+    left: 0;
+    border-top: none; 
+  }
+
+  .filterImage {
+    box-shadow: 3px 5px 15px #4444443c; /* Le damos sombra para que parezca flotante */
+    border-top-right-radius: 10px;
+  }
 }
+
+/* TABLET BREAKPOINT */
 
 @media (min-width: 577px) and (max-width: 768px) {
     .gridSection {
@@ -542,15 +689,16 @@ padding: 90px;
    
     .filterButton {
       display: none;
+      
     }
 
     .filterBox {
       padding-bottom: 0%;
+      
     }
 
-    /* .productImageShopcart {
-      
-    } */
+    
+
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
