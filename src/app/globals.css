@@ -45,6 +45,11 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     text-align: center;
+   
+  }
+
+  .filterIconContainer {
+      border-top: 1px solid #000000;
   }
 
   .filterButton {
@@ -52,6 +57,7 @@
     cursor: pointer;
   }
   .filterBox {
+    
     display: flex;
     border-top: 1px solid #000000;
   }
@@ -59,7 +65,7 @@
     margin-bottom: 50px;
   }
 
-  .titleBox {
+  .titleBox { 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,6 +107,13 @@
     border-bottom-right-radius: 10px;
   }
 
+  .imagesOfSearchbar {
+    width: 3rem;
+    min-width: 1rem;
+    padding: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
   .searchImage {
     width: 1.5rem;
     margin: 2%;
@@ -116,6 +129,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+
 }
 
   .loginModal {
@@ -126,7 +140,7 @@
     background-color: #f8f7f2;
     border-radius: 18px;
     overflow: hidden;
-    display: flex;
+    display: flex; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -142,6 +156,7 @@
 }
 
   .loginImageBox {
+     display: flex; 
     width: 50%;
     background-color: #e8e8dc;
     position: relative;
@@ -228,9 +243,6 @@
     transform: scale(1.05);
   }
 
-  .productCard {
-   cursor: pointer;
-  }
 
   .productImage {
    border: #b5cdb3c3 solid 1px;
@@ -242,27 +254,64 @@
     height: 12rem;
   }
 
+  .addToCartContainer {
+    display: flex;
+    justify-content: end;
+    padding: 5px;
+    
+  }
+
+  .addToCartButton {
+    width: 30px;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+  } 
+
+  .addToCartButton:hover {
+    width: 35px;
+    background-color: #b2d0c8;
+    border-radius: 60px;
+  }
+
+
   /* SIDEBAR */
 
+
 .mainShopFilterContainer {
-  background-color: #c5c5a7;
-  margin: 12% 3% 0% 0%;
+  background-color: #c5c5a7ea;
+  /* margin: 12% 3% 0% 0%; */
   border-radius: 10px;
   border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
+  box-shadow: 0px 5px 15px #4444443c;
+  position: sticky;
+  top: 20px; 
+  height: fit-content; 
+  max-height: calc(100vh - 40px);  
+  overflow-y: auto; 
+  z-index: 10; 
+  
+  min-width: 20%;
+  min-width: 100%;
+  margin-bottom: 20px;
+}
+
+.mainShopFilterContainer hr {
+  color: #d4d4c1;
 }
 
 .filtersSection {
   display: flex;
   flex-direction: column;
   margin-left:20%;
+  margin-bottom: 20%;
 
 }
 
 .filtersSection input {
-padding: 90px;
-
+ padding: 90px;
 }
+
 
 .filterTitle {
   display: flex;
@@ -275,12 +324,35 @@ padding: 90px;
 }
 
 .priceFilter {
+   box-shadow: 0px 3px 8px #4444441e;
+  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 20px;
+  background-color: #b5cbc3;
+  padding: 20px;
+  border-radius: 10px;
 }
 
+.alphabeticOrder {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.alphabeticOrder button {
+  background-color: #d4d4c1;
+  box-shadow: 0px 5px 15px #4444443c;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+
+.titleFilter {
+  margin-top: 20px;
+}
 
 /* MAIN GRID PAGE */
 .mainGridPage {
@@ -360,7 +432,7 @@ padding: 90px;
   align-items: center;
   
   box-shadow: 10px 0px 30px 0px rgba(118, 106, 106, 0.408);
-    border-top-left-radius: 30px;
+  border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   /* padding: 20px; */
   /* width: 80%; */
@@ -478,6 +550,25 @@ padding: 90px;
   width: 100px;
 }
 
+.sidebar-grid {
+  transition: transform 0.3s ease-in-out; 
+}
+
+.filterOverlay {
+  display: none; 
+  position: fixed;
+  inset: 0;
+  background-color: rgba(60, 60, 50, 0.5); 
+  z-index: 1000;
+}
+
+.closeFilterBtnMobile {
+  display: none; 
+}
+
+
+
+
 /* MOBILE BREAKPOINT*/
 
 @media (max-width: 576px) {
@@ -518,10 +609,84 @@ padding: 90px;
     }
 
     .ShoppingCartMainContainer {
-        grid-template-columns: repeat(1,3fr);
-        
+        grid-template-columns: repeat(1,3fr);   
     }
+
+    .loginOverlay {
+      flex-direction: column;
+    }
+
+
+    /* AGREGADO */
+
+  .mainGridPage {
+    display: block; 
+  }
+
+  
+  .sidebar-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: #463f3f63; 
+    z-index: 1001; 
+    overflow-y: auto;
+    transform: translateX(-100%); 
+    box-shadow: 5px 0 20px rgba(0,0,0,0.3);
+  }
+
+  .sidebar-grid.open {
+    transform: translateX(0); 
+  }
+
+ 
+  .filterOverlay.open {
+    display: block;
+  }
+
+
+  .mainShopFilterContainer {
+    min-width: 100%;
+    border-radius: 0; 
+    box-shadow: none;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 10px;
+  }
+
+
+  .closeFilterBtnMobile {
+    display: block;
+    background-color: #efeee6;
+    color: #44443d;
+    border: 1px solid #d8d5c8;
+    padding: 12px;
+    margin: 10px 20px 20px 20px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    width: calc(100% - 40px);
+    text-align: center;
+  }
+
+  .filterBox {
+    position: fixed;
+    top: 190px; 
+    left: 0;
+    border-top: none; 
+  }
+
+  .filterImage {
+    box-shadow: 3px 5px 15px #4444443c; 
+    border-top-right-radius: 10px;
+  }
 }
+
+/* TABLET BREAKPOINT */
 
 @media (min-width: 577px) and (max-width: 768px) {
     .gridSection {
@@ -541,16 +706,14 @@ padding: 90px;
     }
    
     .filterButton {
-      display: none;
+      display: none; 
     }
 
     .filterBox {
       padding-bottom: 0%;
     }
 
-    /* .productImageShopcart {
-      
-    } */
+ 
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -569,6 +732,10 @@ padding: 90px;
     .ShoppingCartMainContainer {
         grid-template-columns: repeat(1,3fr);
     }
+
+       .filterIconContainer {
+      margin-bottom: 50px;
+  }
   }
 
   @media (min-width: 1025px) {
@@ -579,5 +746,9 @@ padding: 90px;
     .filterBox {
       padding-bottom: 55px;
     }
+
+        .filterIconContainer {
+      margin-bottom: 50px;
+  }
   }
 }

@@ -43,7 +43,7 @@ export default function CheckoutCart() {
         <div className="paymentMethodBackground">
           <h1>Aceptamos</h1>
           <div className="paymentMethod">
-            <img src="/visa.png" alt="visa" />
+            <img src="/Visa.svg" alt="visa" />
             <img src="/MasterCard.png" alt="" />
             <img src="/bizum.png" alt="" />
             <img src="" alt="" />

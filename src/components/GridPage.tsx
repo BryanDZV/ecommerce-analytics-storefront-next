@@ -1,14 +1,39 @@
+'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import ProductGrid from './product/ProductGrid';
 import SideBar from './Sidebar';
 
 export default function GridPage() {
+  const abrirFiltros = () => {
+    document.getElementById('sidebar-movil')?.classList.add('open');
+    document.getElementById('overlay-movil')?.classList.add('open');
+  };
+
+  const cerrarFiltros = () => {
+    document.getElementById('sidebar-movil')?.classList.remove('open');
+    document.getElementById('overlay-movil')?.classList.remove('open');
+  };
+
   return (
     <>
+      <button className="mobileFilterBtn" onClick={abrirFiltros}></button>
+
       <div className="mainGridPage">
-        <div className="sidebar-grid">
+        <div
+          id="overlay-movil"
+          className="filterOverlay"
+          onClick={cerrarFiltros}
+        ></div>
+
+        <div id="sidebar-movil" className="sidebar-grid">
+          <button className="closeFilterBtnMobile" onClick={cerrarFiltros}>
+            ✕ Cerrar
+          </button>
           <SideBar></SideBar>
         </div>
+
+        {/* PRODUCTOS */}
         <div>
           <ProductGrid></ProductGrid>
         </div>
