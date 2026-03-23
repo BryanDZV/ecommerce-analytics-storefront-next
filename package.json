@@ -9,7 +9,7 @@
     "lint": "eslint",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "analyze": "ANALYZE=true next build --webpack"
+    "analyze": "next experimental-analyze"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^16.2.1",
