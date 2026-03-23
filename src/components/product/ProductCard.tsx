@@ -1,39 +1,33 @@
-import { Product } from '@/types/product';
-import { products } from '@/mocks/mockProducts';
-import Image from 'next/image';
 import FlexibleImage from '@/app/components/FlexibleImage';
+import { useCartStore } from '@/store/useCartStore';
+import { Product } from '@/types/product';
 
 type ProductCardProps = {
-  productName: string;
-  description: string;
-  price: number;
-  image: string;
+  product: Product;
 };
-
-export default function ProductCard({
-  productName,
-  description,
-  price,
-  image,
-}: ProductCardProps) {
+// This component represents a single product card in the product grid.
+export default function ProductCard({ product }: ProductCardProps) {
+  // We use the cart store to get the addToCart function, which allows us to add products to the cart when the button is clicked.
+  const addToCart = useCartStore((state) => state.addToCart);
   return (
-    <>
-      <section className="productCard">
-        <div className="backgroundCard">
-          <FlexibleImage
-            className="productImage"
-            src={image}
-            alt={productName}
-            fill
-          />
-        </div>
-        <div className="product-description">
-          <h3>{productName}</h3>
-          <strong>
-            <p>{price}€</p>
-          </strong>
-        </div>
-      </section>
-    </>
+    <section className="productCard">
+      <div className="backgroundCard">
+        <FlexibleImage
+          className="productImage"
+          src={product.image}
+          alt={product.name}
+          fill
+        />
+      </div>
+      <div className="product-description">
+        <h3>{product.name}</h3>
+        <strong>
+          <p>{product.price}€</p>
+        </strong>
+        <button className="addToCartButton" onClick={() => addToCart(product)}>
+          Añadir al carrito
+        </button>
+      </div>
+    </section>
   );
 }
