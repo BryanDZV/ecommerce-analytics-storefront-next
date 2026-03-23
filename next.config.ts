@@ -1,6 +1,12 @@
 import type { NextConfig } from 'next';
+import bundleAnalyzer from '@next/bundle-analyzer';
 
-const nextConfig = {
+// bundleAnalyzer will only be activated whenever we use the env variable
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+const nextConfig: NextConfig = {
   // This sets an "allow list" to define from where we can get our images
   images: {
     remotePatterns: [
@@ -16,4 +22,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
