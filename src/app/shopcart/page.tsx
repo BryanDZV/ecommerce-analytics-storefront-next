@@ -1,5 +1,4 @@
 import Header from '@/components/Header';
-import Searchbar from '@/components/Searchbar';
 import ShoppingCartContainer from '@/components/shoppingCart/ShoppingCartContainer';
 import Footer from '@/components/Footer';
 import SearchbarShoppingCart from '@/components/SearchbarShoppingCart';

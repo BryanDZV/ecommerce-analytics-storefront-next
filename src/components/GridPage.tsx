@@ -38,14 +38,6 @@ export default function GridPage() {
           <ProductGrid></ProductGrid>
         </div>
       </div>
-      {/* <div className="mainGridPage">
-        <div className="sidebar-grid">
-          <SideBar></SideBar>
-        </div>
-        <div>
-          <ProductGrid></ProductGrid>
-        </div>
-      </div> */}
     </>
   );
 }

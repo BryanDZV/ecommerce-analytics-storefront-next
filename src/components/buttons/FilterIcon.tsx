@@ -1,7 +1,4 @@
 'use client';
-// import Image from 'next/image';
-// import SideBar from '../Sidebar';
-// import toggleFilters from '../Sidebar';
 
 export default function Filtericon() {
   const abrirDesdeElHeader = () => {

@@ -8,8 +8,8 @@ import { useState } from 'react';
 export default function SideBar() {
   const [valor, setValor] = useState(50);
 
-  const manejarCambio = (evento) => {
-    setValor(evento.target.value);
+  const manejarCambio = (event) => {
+    setValor(event.target.value);
   };
   return (
     <>
@@ -46,7 +46,11 @@ export default function SideBar() {
             <span>Precio</span>
           </div>
           <div className="priceFilter">
-            <input
+            <select>
+              <option value="">Precio mas alto</option>
+              <option value="">Precio mas bajo</option>
+            </select>
+            {/* <input
               type="range"
               id="priceRange"
               name="priceRange"
@@ -55,7 +59,7 @@ export default function SideBar() {
               max="500"
               onChange={manejarCambio}
             />
-            <label>{valor}€</label>
+            <label>{valor}€</label> */}
           </div>
 
           <hr />

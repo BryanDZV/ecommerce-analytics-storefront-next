@@ -14,9 +14,7 @@ export default function SearchbarShoppingCart() {
     <>
       <section>
         <div className="titleSearch">
-          <div className="filterIconContainer">
-            <Filtericon></Filtericon>
-          </div>
+          <div className="filterIconContainer"></div>
 
           <div className="titleBox">
             <div className="glassSearch">
@@ -28,7 +26,7 @@ export default function SearchbarShoppingCart() {
               />
             </div>
             <div className="cartUser">
-              <Link href="/app">
+              <Link href="/">
                 <img className="imagesOfSearchbar" src="/home.png" alt="" />
               </Link>
 
@@ -42,7 +40,6 @@ export default function SearchbarShoppingCart() {
             </div>
           </div>
           {/* medio */}
-
           <div className="borderBottomBoxSearch">
             <hr />
           </div>

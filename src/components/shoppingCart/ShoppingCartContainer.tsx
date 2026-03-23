@@ -2,7 +2,10 @@
 import ShoppingCard from '@/components/shoppingCart/ShoppingCard';
 import { products } from '@/mocks/mockProducts';
 import CheckoutCart from './CheckoutCart';
+import { useCartStore } from '@/store/useCartStore';
 export default function ShoppingCartContainer() {
+  // const products = useCartStore((state) => state.)
+
   return (
     <>
       <div className="ShoppingCartMainContainer">

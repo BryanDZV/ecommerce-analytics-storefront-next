@@ -45,6 +45,11 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     text-align: center;
+   
+  }
+
+  .filterIconContainer {
+      border-top: 1px solid #000000;
   }
 
   .filterButton {
@@ -52,6 +57,7 @@
     cursor: pointer;
   }
   .filterBox {
+    
     display: flex;
     border-top: 1px solid #000000;
   }
@@ -59,7 +65,7 @@
     margin-bottom: 50px;
   }
 
-  .titleBox {
+  .titleBox { 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,6 +129,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+
 }
 
   .loginModal {
@@ -133,7 +140,7 @@
     background-color: #f8f7f2;
     border-radius: 18px;
     overflow: hidden;
-    display: flex;
+    display: flex; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -149,6 +156,7 @@
 }
 
   .loginImageBox {
+     display: flex; 
     width: 50%;
     background-color: #e8e8dc;
     position: relative;
@@ -235,9 +243,6 @@
     transform: scale(1.05);
   }
 
-  .productCard {
-   cursor: pointer;
-  }
 
   .productImage {
    border: #b5cdb3c3 solid 1px;
@@ -253,12 +258,20 @@
     display: flex;
     justify-content: end;
     padding: 5px;
-    cursor: pointer;
+    
   }
 
   .addToCartButton {
     width: 30px;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
   } 
+
+  .addToCartButton:hover {
+    width: 35px;
+    background-color: #b2d0c8;
+    border-radius: 60px;
+  }
 
 
   /* SIDEBAR */
@@ -272,11 +285,11 @@
   border-bottom-left-radius: 0%;
   box-shadow: 0px 5px 15px #4444443c;
   position: sticky;
-  top: 20px; /* Margen superior cuando se queda pegado. Ajusta según la altura de tu header */
-  height: fit-content; /* IMPORTANTE: Para que sticky funcione, no puede ocupar el 100% de la altura */
-  max-height: calc(100vh - 40px); /* Evita que crezca más que la pantalla, permite scroll interno si hay muchos filtros */
-  overflow-y: auto; /* Muestra barra de scroll si los filtros son muy largos */
-  z-index: 10; /* Asegura que quede por debajo del header si este tiene un z-index mayor */
+  top: 20px; 
+  height: fit-content; 
+  max-height: calc(100vh - 40px);  
+  overflow-y: auto; 
+  z-index: 10; 
   
   min-width: 20%;
   min-width: 100%;
@@ -311,12 +324,13 @@
 }
 
 .priceFilter {
+   box-shadow: 0px 3px 8px #4444441e;
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 20px;
-  background-color: #b9b99b;
+  background-color: #b5cbc3;
   padding: 20px;
   border-radius: 10px;
 }
@@ -537,19 +551,19 @@
 }
 
 .sidebar-grid {
-  transition: transform 0.3s ease-in-out; /* Animación suave al abrir/cerrar */
+  transition: transform 0.3s ease-in-out; 
 }
 
 .filterOverlay {
-  display: none; /* Oculto por defecto */
+  display: none; 
   position: fixed;
   inset: 0;
-  background-color: rgba(60, 60, 50, 0.5); /* Oscurece la pantalla usando tonos de tu diseño */
+  background-color: rgba(60, 60, 50, 0.5); 
   z-index: 1000;
 }
 
 .closeFilterBtnMobile {
-  display: none; /* Oculto en PC */
+  display: none; 
 }
 
 
@@ -595,9 +609,13 @@
     }
 
     .ShoppingCartMainContainer {
-        grid-template-columns: repeat(1,3fr);
-        
+        grid-template-columns: repeat(1,3fr);   
     }
+
+    .loginOverlay {
+      flex-direction: column;
+    }
+
 
     /* AGREGADO */
 
@@ -657,13 +675,13 @@
 
   .filterBox {
     position: fixed;
-    top: 250px; 
+    top: 190px; 
     left: 0;
     border-top: none; 
   }
 
   .filterImage {
-    box-shadow: 3px 5px 15px #4444443c; /* Le damos sombra para que parezca flotante */
+    box-shadow: 3px 5px 15px #4444443c; 
     border-top-right-radius: 10px;
   }
 }
@@ -688,17 +706,14 @@
     }
    
     .filterButton {
-      display: none;
-      
+      display: none; 
     }
 
     .filterBox {
       padding-bottom: 0%;
-      
     }
 
-    
-
+ 
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -717,6 +732,10 @@
     .ShoppingCartMainContainer {
         grid-template-columns: repeat(1,3fr);
     }
+
+       .filterIconContainer {
+      margin-bottom: 50px;
+  }
   }
 
   @media (min-width: 1025px) {
@@ -727,5 +746,9 @@
     .filterBox {
       padding-bottom: 55px;
     }
+
+        .filterIconContainer {
+      margin-bottom: 50px;
+  }
   }
 }

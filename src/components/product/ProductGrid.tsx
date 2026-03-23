@@ -1,5 +1,5 @@
 'use client';
-// import Image from 'next/image';
+
 import ProductCard from './ProductCard';
 import { useListProducts } from '@/hooks/products/useProducts';
 

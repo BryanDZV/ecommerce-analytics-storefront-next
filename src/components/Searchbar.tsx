@@ -18,7 +18,7 @@ export default function Searchbar() {
     <>
       <section>
         <div className="titleSearch">
-          <div className="filterIconContainer">
+          <div className="">
             <Filtericon></Filtericon>
           </div>
 
