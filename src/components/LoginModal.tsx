@@ -20,7 +20,10 @@ const loginSchema = z.object({
 export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    
+    const [emailError, setEmailError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
+    const [authError, setAuthError] = useState('')
+
     const user = useUserStore((state) => state.user)
     const login = useUserStore((state) => state.login)
     const logout = useUserStore((state) => state.logout)
@@ -36,13 +39,26 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
         e.preventDefault()
 
         reset()
+        setEmailError('')
+        setPasswordError('')
+        setAuthError('')
 
         const result = loginSchema.safeParse({ email, password })
 
+        if (!email.trim()&& !password.trim()) {
+            setAuthError('Email and password are required')
+            return
+        }
+
         if (!result.success) {
-            const message = result.error.issues[0].message
-            showError(message)
-            sileo.error({title: message})
+            result.error.issues.forEach((issue) => {
+                if (issue.path[0] === 'email'){
+                    setEmailError(issue.message)
+                }
+                if (issue.path[0] === 'password') {
+                    setPasswordError(issue.message)
+                }
+            })
             return
         }
 
@@ -55,22 +71,29 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
             const message = 'Login successful'
             showSuccess(message)
+
             sileo.success({title: message})
 
             setEmail('')
             setPassword('')
+            setEmailError('')
+            setPasswordError('')
+            setAuthError('')
+
+            onClose()
             return
         }
 
         const message = 'Incorrect email or password'
+        setAuthError(message)
         showError(message)
-        sileo.error({title: message})
     }
 
     const handleLogout = () => {
         logout()
         reset()
         sileo.success({title: 'Logged out'})
+        onClose()
     }
 
     return (
@@ -105,7 +128,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             onChange={(e) => {
                                 setEmail(e.target.value)
                             }}
-                        />
+                        />   
                         <input
                             className="loginInput" 
                             type="password" 
@@ -115,6 +138,10 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                 setPassword(e.target.value)
                             }}
                         />
+
+                        {emailError && <p className='loginError'>{emailError}</p>} 
+                        {passwordError && <p className='loginError'>{passwordError}</p>} 
+                        {authError && <p className='loginError'>{authError}</p>} 
 
                         <button className="loginButton" type="submit"> Login </button>
 
