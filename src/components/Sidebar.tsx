@@ -50,16 +50,7 @@ export default function SideBar() {
               <option value="">Precio mas alto</option>
               <option value="">Precio mas bajo</option>
             </select>
-            {/* <input
-              type="range"
-              id="priceRange"
-              name="priceRange"
-              value={valor}
-              min="0"
-              max="500"
-              onChange={manejarCambio}
-            />
-            <label>{valor}€</label> */}
+           
           </div>
 
           <hr />
