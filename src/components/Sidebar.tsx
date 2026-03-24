@@ -8,7 +8,7 @@ import { useState } from 'react';
 export default function SideBar() {
   const [valor, setValor] = useState(50);
 
-  const manejarCambio = (event) => {
+  const manejarCambio = (event: any) => {
     setValor(event.target.value);
   };
   return (
@@ -50,7 +50,6 @@ export default function SideBar() {
               <option value="">Precio mas alto</option>
               <option value="">Precio mas bajo</option>
             </select>
-           
           </div>
 
           <hr />
