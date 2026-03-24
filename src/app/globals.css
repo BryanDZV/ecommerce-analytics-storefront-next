@@ -578,8 +578,30 @@
   display: none; 
 }
 
+/* DISCOUNT CODE */
 
+.checkoutDiscountBox {
+  display: flex;
+  margin: 8px 0 8px;
+}
 
+.checkoutDiscountInput{
+ background-color: #ffffff;
+ padding: 0 14px;
+ border: #d8d5c8;
+ border-radius: 10px;
+}
+
+.checkoutDiscountButton {
+  background-color: #d7c7a8;
+  padding: 0 16px;
+  border: 1px solid #d4d4c1;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  justify-content: right;
+}
 
 /* MOBILE BREAKPOINT*/
 
