@@ -1,22 +1,28 @@
-// 'use client';
+'use client';
 // import GridPage from './GridPage';
-// import { use, useState } from 'react';
+import { useState } from 'react';
 // import Filtericon from './buttons/FilterIcon';
 // import { products } from '@/mocks/mockProducts';
 // import ProductCard from './product/ProductCard';
 
 export default function SideBar() {
+  const [valor, setValor] = useState(50);
+
+  const manejarCambio = (event) => {
+    setValor(event.target.value);
+  };
   return (
     <>
-      <div className="mainShopFilterContainer">
+      <dialog open className="mainShopFilterContainer">
         <div>
           <span className="filterTitle">Filtros</span>
         </div>
-        <div>
-          <span className="categoryTitle">Categoría</span>
-        </div>
+        <hr />
 
         <section className="filtersPanel">
+          <div className="titleFilter">
+            <span className="categoryTitle">Categoría</span>
+          </div>
           <div className="filtersSection">
             <label>
               <input type="checkbox" />
@@ -35,19 +41,28 @@ export default function SideBar() {
               Accesorios
             </label>
           </div>
-          <span>Precio</span>
-          <div className="priceFilter">
-            <input type="range" min="0" max="100" />
+          <hr />
+          <div className="titleFilter">
+            <span>Precio</span>
           </div>
-          <div>
-            <span>Orden Alfabetico</span>
+          <div className="priceFilter">
+            <select>
+              <option value="">Precio mas alto</option>
+              <option value="">Precio mas bajo</option>
+            </select>
+           
+          </div>
+
+          <hr />
+          <div className="alphabeticOrder">
+            <span>Orden Alfabético</span>
             <br />
 
             <button>A-Z</button>
             <button>Z-A</button>
           </div>
         </section>
-      </div>
+      </dialog>
     </>
   );
 }

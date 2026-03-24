@@ -1,11 +1,7 @@
-import Image from 'next/image';
 import Header from '../components/Header';
 import Searchbar from '@/components/Searchbar';
 import Footer from '@/components/Footer';
-import ProductGrid from '@/components/product/ProductGrid';
 import GridPage from '@/components/GridPage';
-import SideBar from '@/components/Sidebar';
-import Link from 'next/link';
 
 export default function Page() {
   return (

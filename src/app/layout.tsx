@@ -17,7 +17,6 @@ const geistSans = Geist({
   subsets: ['latin'],
 });
 
-
 export const metadata: Metadata = {
   title: 'Next Commerce',
   description: 'Crafted with ❤️',
