@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import FlexibleImage from '@/app/components/FlexibleImage'
 import { demoLogin, demoPassword, useUserStore } from '@/store/useUserStore'
@@ -8,8 +8,8 @@ import { sileo } from 'sileo'
 import { useNotificationStore } from '@/store/useNotificationStore'
 
 interface LoginModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+    isOpen: boolean
+    onClose: () => void
 }
 
 const loginSchema = z.object({
@@ -152,40 +152,6 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     )}
                 </div>
             </div>
-          ) : (
-            <form className="loginForm" onSubmit={handleSubmit}>
-              <input
-                className="loginInput"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                className="loginInput"
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-
-              {error && <p className="loginError">{error}</p>}
-
-              <button className="loginButton" type="submit">
-                Login
-              </button>
-
-              <button className="loginButton2" type="button">
-                I forgot my password. Click here to reset
-              </button>
-
-              <button className="loginButton2" type="button">
-                Register New Account
-              </button>
-            </form>
-          )}
         </div>
-      </div>
-    </div>
-  );
-}
+    )
+}    
