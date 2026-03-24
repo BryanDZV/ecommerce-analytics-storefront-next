@@ -1,11 +1,11 @@
 'use client';
 
+import { useFilteredProducts } from '@/hooks/products/useProducts';
 import ProductCard from './ProductCard';
-import { useListProducts } from '@/hooks/products/useProducts';
 
 export default function ProductGrid() {
   //we use the hook to obtain the products
-  const { data, isLoading, isError } = useListProducts();
+  const { data, isLoading, isError } = useFilteredProducts();
 
   if (isLoading) return <div>Cargando productos...</div>;
   if (isError) return <div>Error al cargar productos</div>;

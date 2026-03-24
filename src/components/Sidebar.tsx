@@ -1,67 +1,105 @@
 'use client';
-// import GridPage from './GridPage';
-import { useState } from 'react';
-// import Filtericon from './buttons/FilterIcon';
-// import { products } from '@/mocks/mockProducts';
-// import ProductCard from './product/ProductCard';
+
+import { Category, useFilterStore } from '@/store/useFilterStore';
 
 export default function SideBar() {
-  const [valor, setValor] = useState(50);
+  //desde Zustand obtenemos el estado global
+  // Estado global: categoría seleccionada y función para actualizarla
+  const selectedCategory = useFilterStore((state) => state.selectedCategory);
+  const setSelectedCategory = useFilterStore(
+    (state) => state.setSelectedCategory
+  );
 
-  const manejarCambio = (event: any) => {
-    setValor(event.target.value);
-  };
+  // Estado global: orden de precio y función para actualizarlo
+  const priceOrder = useFilterStore((state) => state.priceOrder);
+  const setPriceOrder = useFilterStore((state) => state.setPriceOrder);
+
+  // Estado global: orden alfabético y función para actualizarlo
+  const nameOrder = useFilterStore((state) => state.nameOrder);
+  const setNameOrder = useFilterStore((state) => state.setNameOrder);
+
+  // Categorías disponibles para filtrar
+  const categories: Category[] = [
+    'clothing',
+    'electronics',
+    'home',
+    'accessories',
+  ];
+
   return (
-    <>
-      <dialog open className="mainShopFilterContainer">
-        <div>
-          <span className="filterTitle">Filtros</span>
+    <dialog open className="mainShopFilterContainer">
+      <div>
+        <span className="filterTitle">Filtros</span>
+      </div>
+      <hr />
+
+      <section className="filtersPanel">
+        {/* SECCIÓN CATEGORÍAS: Permite seleccionar una categoría para filtrar productos */}
+        <div className="titleFilter">
+          <span className="categoryTitle">Categoría</span>
         </div>
+        <div className="filtersSection">
+          {categories.map((category) => (
+            <label key={category}>
+              <input
+                type="checkbox"
+                checked={selectedCategory === category}
+                onChange={() => setSelectedCategory(category)}
+              />
+              {/* Mostrar el nombre de la categoría con la primera letra en mayúscula */}
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </label>
+          ))}
+        </div>
+
         <hr />
 
-        <section className="filtersPanel">
-          <div className="titleFilter">
-            <span className="categoryTitle">Categoría</span>
-          </div>
-          <div className="filtersSection">
-            <label>
-              <input type="checkbox" />
-              Ropa
-            </label>
-            <label>
-              <input type="checkbox" />
-              Tecnología
-            </label>
-            <label>
-              <input type="checkbox" />
-              Home
-            </label>
-            <label>
-              <input type="checkbox" />
-              Accesorios
-            </label>
-          </div>
-          <hr />
-          <div className="titleFilter">
-            <span>Precio</span>
-          </div>
-          <div className="priceFilter">
-            <select>
-              <option value="">Precio mas alto</option>
-              <option value="">Precio mas bajo</option>
-            </select>
-          </div>
+        {/* SECCIÓN PRECIO: Permite ordenar productos por precio */}
+        <div className="titleFilter">
+          <span>Precio</span>
+        </div>
+        <div className="priceFilter">
+          <select
+            value={priceOrder || ''}
+            onChange={(e) => {
+              const val = e.target.value;
+              // Cambia el orden de precio según la selección
+              if (val === 'min-max' || val === 'max-min') {
+                setPriceOrder(val);
+              } else {
+                setPriceOrder('max-min');
+              }
+            }}
+          >
+            <option value="">Sin orden</option>
+            <option value="max-min">Precio más alto</option>
+            <option value="min-max">Precio más bajo</option>
+          </select>
+        </div>
 
-          <hr />
-          <div className="alphabeticOrder">
-            <span>Orden Alfabético</span>
-            <br />
+        <hr />
 
-            <button>A-Z</button>
-            <button>Z-A</button>
+        {/* SECCIÓN ORDEN ALFABÉTICO: Permite ordenar productos por nombre */}
+        <div className="alphabeticOrder">
+          <span>Orden Alfabético</span>
+          <br />
+          <div className="buttonGroup">
+            <button
+              className={nameOrder === 'a-z' ? 'active' : ''}
+              onClick={() => setNameOrder('a-z')}
+            >
+              A-Z
+            </button>
+
+            <button
+              className={nameOrder === 'z-a' ? 'active' : ''}
+              onClick={() => setNameOrder('z-a')}
+            >
+              Z-A
+            </button>
           </div>
-        </section>
-      </dialog>
-    </>
+        </div>
+      </section>
+    </dialog>
   );
 }
