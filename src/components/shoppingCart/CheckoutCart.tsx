@@ -31,6 +31,14 @@ export default function CheckoutCart() {
               </span>
               <span>
                 <strong>28.50€</strong>
+              </span>      
+            </div>
+            <div className='checkoutDiscountBox'>
+              <span>
+                <input className='checkoutDiscountInput' type="text" placeholder='Discount code'/>
+              </span>
+              <span>
+                <button type='button' className='checkoutDiscountButton'>Apply</button>
               </span>
             </div>
           </div>
