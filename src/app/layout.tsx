@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Nunito_Sans, Geist } from 'next/font/google';
 import './globals.css';
 import { QueryProvider } from './queryProvider';
+import { Toaster } from 'sileo';
 
 // Default font
 const nunitoSans = Nunito_Sans({
@@ -28,10 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${nunitoSans.className} ${geistSans.variable} antialiased`}
-      >
-        <QueryProvider>{children}</QueryProvider>
+      <body className={`${nunitoSans.className} ${geistSans.variable} antialiased`}>
+        <QueryProvider>{children} <Toaster position="top-right"/></QueryProvider>
       </body>
     </html>
   );
