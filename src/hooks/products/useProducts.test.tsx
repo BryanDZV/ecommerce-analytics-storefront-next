@@ -34,7 +34,7 @@ const mockedGetFilteredProducts = jest.mocked(getFilteredProducts);
 //To test react-query hooks, they need to be inside a QueryClientProvider.
 //This wrapper provides us with that necessary context.
 const createWrapper = () => {
-  //QueryClient: Es el cerebro de react-query. Gestiona el cache, reintentos, etc.
+  //QueryClient: It is the brain of react-query. Manage cache, retries, etc.
   //In tests, we create a new instance for each test to ensure they are isolated.
   const queryClient = new QueryClient({
     defaultOptions: {

@@ -37,7 +37,7 @@ describe('Product Service', () => {
     expect(result).toBeUndefined();
   });
 
-  /*---FILTERING AND SORTING TESTS (P4) ---*/
+  /*---FILTERING AND SORTING TESTS  ---*/
 
   test('getFilteredProducts filter correctly by category', () => {
     const category = products[0].category;
