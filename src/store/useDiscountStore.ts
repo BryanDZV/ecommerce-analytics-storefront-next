@@ -2,7 +2,8 @@ import { create } from 'zustand'
 
 interface DiscountCode {
     code: string
-    percentage: number
+    type: 'percentage' | 'fixed'
+    value: number
 }
 
 interface DiscountStore {
@@ -19,10 +20,16 @@ interface DiscountStore {
 
 //Temporary mock data
 
-const mockDiscountCode: DiscountCode [] = [
+const mockDiscountCodes: DiscountCode [] = [
     {
         code: 'PRUEBA10',
-        percentage: 10,
+        type: 'percentage',
+        value: 10
+    },
+    {
+        code: 'PRUEBA5',
+        type: 'fixed',
+        value: 5
     }
 ]
 
@@ -50,7 +57,7 @@ export const useDiscountStore = create<DiscountStore>((set, get) => ({
             return
         }
 
-        const matchedCode = mockDiscountCode.find(
+        const matchedCode = mockDiscountCodes.find(
             (item) => item.code === currentCode
         ) 
         if (!matchedCode) {
@@ -63,7 +70,15 @@ export const useDiscountStore = create<DiscountStore>((set, get) => ({
             return
         }
 
-        const calculateDiscount = subtotal * (matchedCode.percentage / 100)
+        let calculateDiscount = 0
+
+        if (matchedCode.type === 'percentage') {
+            calculateDiscount = subtotal * (matchedCode.value / 100)
+        }
+
+        if (matchedCode.type === 'fixed') {
+            calculateDiscount = matchedCode.value
+        }
 
         set({
             appliedCode: matchedCode.code,
