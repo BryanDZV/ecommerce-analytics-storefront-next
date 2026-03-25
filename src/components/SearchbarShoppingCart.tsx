@@ -21,14 +21,14 @@ export default function SearchbarShoppingCart() {
               <input
                 className="inputSearch"
                 type="text"
-                placeholder="Busca tu producto"
-                aria-label='Busca tu producto'
+                placeholder="Search product"
+                aria-label='Search product'
                 title='Busca tu producto'
               />
             </div>
             <div className="cartUser">
               <Link href="/">
-                <img className="imagesOfSearchbar" src="/home.png" alt="Inicio" />
+                <img className="imagesOfSearchbar" src="/home.png" alt="Home" />
               </Link>
 
               <button type="button" onClick={() => setIsLoginOpen(true)}>

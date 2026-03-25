@@ -18,7 +18,7 @@ export default function GridPage() {
       <button
         className="mobileFilterBtn"
         onClick={abrirFiltros}
-        aria-label="Abrir filtros"
+        aria-label="Show filters"
       ></button>
 
       <div className="mainGridPage">
