@@ -24,6 +24,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <strong>
           <p>{product.price}€</p>
         </strong>
+        <strong>
+          <p>{product.category}</p>
+        </strong>
         <button className="addToCartButton" onClick={() => addToCart(product)}>
           Añadir al carrito
         </button>
