@@ -581,8 +581,9 @@
 /* DISCOUNT CODE */
 
 .checkoutDiscountBox {
-  display: flex;
-  margin: 8px 0 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 5px 0 5px;
 }
 
 .checkoutDiscountInput{
@@ -601,6 +602,25 @@
   font-weight: 600;
   cursor: pointer;
   justify-content: right;
+}
+
+.checkoutAppliedCode {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.checkoutDiscountError {
+  text-align: center;
+  margin: 12px auto 0;
+  padding: 0px 14px 14px;
+  line-height: 1;
+  color: #9f3a38;
+}
+.checkoutDiscountSuccess {
+  margin-top:0%;
+  text-align: center;
 }
 
 /* MOBILE BREAKPOINT*/
