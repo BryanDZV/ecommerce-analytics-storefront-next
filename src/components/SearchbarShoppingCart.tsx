@@ -1,6 +1,5 @@
 'use client';
 
-import Filtericon from './buttons/FilterIcon';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';

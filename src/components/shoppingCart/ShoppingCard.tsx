@@ -1,7 +1,8 @@
 import FlexibleImage from '@/app/components/FlexibleImage';
 import { useCartStore } from '@/store/useCartStore';
 import { CartItem } from '@/types/cart';
-
+import { Divide } from 'lucide-react';
+import { useState } from 'react';
 //we define the props for the ShoppingCard component, which will receive a product of type CartItem
 type ShoppingCardProps = {
   product: CartItem;
@@ -11,9 +12,22 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
   //we use the useCartStore hook to get the removeFromCart function from our cart store
   const removeFromCart = useCartStore((state) => state.removeFromCart);
 
+  const cartItems = useCartStore((state) => state.cart);
+  const totalItems = cartItems.length;
+
+  const [isRemoving, setIsRemoving] = useState(false);
+
+  const handleRemove = () => {
+    setIsRemoving(true);
+
+    setTimeout(() => {
+      removeFromCart(product.id);
+    }, 800);
+  };
+
   return (
     <>
-      <div className="mainShopCart">
+      <div className={`mainShopCart ${isRemoving ? 'fade-out' : ''}`}>
         <div className="productShopImage">
           <FlexibleImage
             className="productImageShopcart"
@@ -29,19 +43,14 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
               <p>{product.description}</p>
             </div>
             <div>
-              <button
-                className="removeProduct"
-                onClick={() => {
-                  removeFromCart(product.id);
-                }}
-              >
+              <button className="removeProduct" onClick={handleRemove}>
                 <img width={40} src="/trash.png" alt="close" />
               </button>
             </div>
           </div>
           <div className="priceAndQuantity">
             <span>Precio por unidad:</span>
-            <span>{product.price}€</span>
+            <span>{Math.round(product.price)}€</span>
             <span>Cantidad: </span>
             {
               <div>

@@ -2,7 +2,7 @@ import FlexibleImage from '@/app/components/FlexibleImage';
 
 export default function Header() {
   return (
-    <header className="header" role='banner'>
+    <header className="header" role="banner">
       {/* --- BACKGROUND IMAGE --- */}
       <div className="absolute inset-0 z-0">
         <FlexibleImage
@@ -10,11 +10,11 @@ export default function Header() {
           alt="Fondo de cabecera"
           fill
           priority
-          sizes='100vw'
-          className='object-cover'
+          sizes="100vw"
+          className="object-cover"
         />
       </div>
-      
+
       <div className="mainContainerHeader">
         <div className="containerLogo">
           {/* <hr className="first-line" /> */}

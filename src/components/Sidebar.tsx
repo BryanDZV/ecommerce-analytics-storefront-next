@@ -50,7 +50,6 @@ export default function SideBar() {
               <option value="">Precio mas alto</option>
               <option value="">Precio mas bajo</option>
             </select>
-           
           </div>
 
           <hr />

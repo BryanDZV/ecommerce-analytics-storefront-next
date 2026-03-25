@@ -1,6 +1,7 @@
 import FlexibleImage from '@/app/components/FlexibleImage';
 import { useCartStore } from '@/store/useCartStore';
 import { Product } from '@/types/product';
+import Link from 'next/link';
 
 type ProductCardProps = {
   product: Product;
@@ -11,22 +12,29 @@ export default function ProductCard({ product }: ProductCardProps) {
   const addToCart = useCartStore((state) => state.addToCart);
   return (
     <section className="productCard">
-      <div className="backgroundCard">
-        <FlexibleImage
-          className="productImage"
-          src={product.image}
-          alt={product.name}
-          fill
-        />
-      </div>
+      <Link href={`/products/${product.id}`}>
+        <div className="backgroundCard">
+          <FlexibleImage
+            className="productImage"
+            src={product.image}
+            alt={product.name}
+            fill
+          />
+        </div>
+      </Link>
       <div className="product-description">
         <h3>{product.name}</h3>
         <strong>
           <p>{product.price}€</p>
         </strong>
-        <button className="addToCartButton" onClick={() => addToCart(product)}>
-          Añadir al carrito
-        </button>
+        <div className="addToCartContainerbutton">
+          <button
+            className="addToCartButton"
+            onClick={() => addToCart(product)}
+          >
+            <img src="/add-to-cart.png" alt="añadir al carrito" />
+          </button>
+        </div>
       </div>
     </section>
   );
