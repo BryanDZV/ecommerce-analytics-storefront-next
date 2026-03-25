@@ -87,7 +87,6 @@ export const useDiscountStore = create<DiscountStore>((set, get) => ({
             successMessage: 'Discount code applied successfully',
         })
     },
-    
     resetDiscount: () =>
         set({
             code:'',

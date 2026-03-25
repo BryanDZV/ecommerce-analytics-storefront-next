@@ -21,8 +21,6 @@ export default function CheckoutCart() {
 
   const total = subtotal - discountAmount
 
-  const displayedImages = cart.slice(0, 3)
-
   return (
     <>
       <section className="checkoutMain">
@@ -72,13 +70,9 @@ export default function CheckoutCart() {
                 >Apply</button>
               </span>
             </div>
-            {errorMessage &&(
-              <p className='checkoutDiscountError'>{errorMessage}</p>
-            )}
+            {errorMessage &&(<p className='checkoutDiscountError'>{errorMessage}</p>)}
 
-            {successMessage &&(
-              <p className='checkoutDiscountSuccess'>{successMessage}</p>
-            )}
+            {successMessage &&(<p className='checkoutDiscountSuccess'>{successMessage}</p>)}
 
             {appliedCode &&(
               <div className='checkoutAppliedCode'>
