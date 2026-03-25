@@ -60,6 +60,7 @@ export default function SideBar() {
         </div>
         <div className="priceFilter">
           <select
+            aria-label="Ordenar por precio"
             value={priceOrder || ''}
             onChange={(e) => {
               const val = e.target.value;
