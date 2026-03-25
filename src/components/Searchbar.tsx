@@ -4,6 +4,8 @@ import Filtericon from './buttons/FilterIcon';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useCartStore } from '@/store/useCartStore';
+
 const LoginModal = dynamic(() => import('../components/LoginModal'), {
   // In case we need a loading effect
   // loading: () =>
@@ -14,6 +16,10 @@ const LoginModal = dynamic(() => import('../components/LoginModal'), {
 
 export default function Searchbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const cartItems = useCartStore((state) => state.cart);
+
+  const totalItems = cartItems.length;
   return (
     <>
       <section>
@@ -30,13 +36,20 @@ export default function Searchbar() {
                 type="text"
                 placeholder="Busca tu producto"
                 // Properties to improve web accessibility
-                aria-label='Busca tu producto'
-                title='Busca tu producto'
+                aria-label="Busca tu producto"
+                title="Busca tu producto"
               />
             </div>
             <div className="cartUser">
               <Link href="/shopcart">
-                <img className="filterImage" src="/shopping-cart.png" alt="Filter Image" />
+                {totalItems > 0 && (
+                  <div className="itemCounterCartCircle">{totalItems}</div>
+                )}
+                <img
+                  className="filterImage"
+                  src="/shopping-cart.png"
+                  alt="Filter Image"
+                />
               </Link>
 
               <button type="button" onClick={() => setIsLoginOpen(true)}>
@@ -48,7 +61,6 @@ export default function Searchbar() {
               </button>
             </div>
           </div>
-          {/* medio */}
 
           <div className="borderBottomBoxSearch">
             <hr />
