@@ -11,6 +11,7 @@ type ShoppingCardProps = {
 export default function ShoppingCard({ product }: ShoppingCardProps) {
   //we use the useCartStore hook to get the removeFromCart function from our cart store
   const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
 
   const cartItems = useCartStore((state) => state.cart);
   const totalItems = cartItems.length;
@@ -25,6 +26,17 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
     }, 800);
   };
 
+  const handleQuantityChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value = Number(event.target.value)
+
+    if(Number.isNaN(value)) {
+      return
+    }
+    updateQuantity(product.id, value)
+  }
+  
   return (
     <>
       <div className={`mainShopCart ${isRemoving ? 'fade-out' : ''}`}>
@@ -58,6 +70,8 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
                   value={product.quantity}
                   className="quantityProduct"
                   type="number"
+                  min="0"
+                  onChange={handleQuantityChange}
                 />
               </div>
             }

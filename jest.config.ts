@@ -18,6 +18,11 @@ const config: Config = {
 
   // Link to our jest.setup.ts
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+
+  // So Jest can resolve @ alias to src/
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

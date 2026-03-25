@@ -2,11 +2,11 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { CartItem } from '../types/cart';
 import { Product } from '../types/product';
-
 interface CartStore {
   cart: CartItem[];
   addToCart: (product: Product) => void;
   removeFromCart: (id: string) => void;
+  updateQuantity: (id: string, quantity:number) => void;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -33,6 +33,19 @@ export const useCartStore = create<CartStore>()(
         set((state) => ({
           cart: state.cart.filter((item) => item.id !== id),
         })),
+      updateQuantity: (id, quantity) => 
+        set((state) => {
+          if (quantity <= 0) {
+            return {
+              cart: state.cart.filter((item) => item.id !==id)
+            }
+          }
+          return {
+            cart: state.cart.map((item) =>
+              item.id === id ? { ...item, quantity } : item
+            ),
+          }
+        }),
     }),
 
     {

@@ -239,6 +239,18 @@
     border-radius: 14px;
   }
 
+  .loginError {
+    background-color: #f8ece9;
+    text-align: center;
+  }
+
+  .loginAuthenticatedBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
   /* PRODUCT GRID */
 
   .gridSection {
@@ -606,6 +618,20 @@
   display: none; 
 }
 
+/* DISCOUNT CODE */
+
+.checkoutDiscountBox {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 5px 0 5px;
+}
+
+.checkoutDiscountInput{
+ background-color: #ffffff;
+ padding: 0 14px;
+ border: #d8d5c8;
+ border-radius: 10px;
+}
 
 .noProductsEmpty {
   display: flex;
@@ -796,7 +822,35 @@
   margin: 2px;
 }
 
+.checkoutDiscountButton {
+  background-color: #d7c7a8;
+  padding: 0 16px;
+  border: 1px solid #d4d4c1;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  justify-content: right;
+}
 
+.checkoutAppliedCode {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.checkoutDiscountError {
+  text-align: center;
+  margin: 12px auto 0;
+  padding: 0px 14px 14px;
+  line-height: 1;
+  color: #9f3a38;
+}
+.checkoutDiscountSuccess {
+  margin-top:0%;
+  text-align: center;
+}
 
 /* MOBILE BREAKPOINT*/
 
