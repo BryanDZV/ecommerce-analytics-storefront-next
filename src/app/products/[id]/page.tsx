@@ -171,8 +171,8 @@ export default async function ProductDetailPage({ params }: Props) {
 
           <div className="buyDescriptionPage">
             <div className="quantitySection">
-              <span>Cantidad:</span>
-              <input type="number" />
+              <span id='cantidad'>Cantidad:</span>
+              <input aria-labelledby='cantidad' type="number" />
             </div>
             <hr className="quantityDivider" />
             <div className="amountPriceDetails">
