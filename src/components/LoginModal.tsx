@@ -128,6 +128,8 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             onChange={(e) => {
                                 setEmail(e.target.value)
                             }}
+                            aria-label='Introduce your email'
+                            title='Introduce your email'
                         />   
                         <input
                             className="loginInput" 
@@ -137,6 +139,8 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                             onChange={(e) => {
                                 setPassword(e.target.value)
                             }}
+                            aria-label='Introduce your password'
+                            title='Introduce your password'
                         />
 
                         {emailError && <p className='loginError'>{emailError}</p>} 
