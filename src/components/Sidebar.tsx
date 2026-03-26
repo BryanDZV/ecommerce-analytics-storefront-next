@@ -103,6 +103,7 @@ export default function SideBar() {
         </div>
 
         <div className='resetFilters'>
+            
           <button
           type='button'
           className='resetFiltersButton'

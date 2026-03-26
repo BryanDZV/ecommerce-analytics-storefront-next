@@ -50,7 +50,7 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
       {showConfirmModal && (
         <div className='confirmOverlay'>
           <div className='confirmModal'>
-            <p>¿Estas seguro que deseas eliminar el carrito de la cesta?</p>
+            <p className='confirmModalTitle'>Eliminar el producto de la cesta</p>
 
             <div className='confirmActions'>
               <button
@@ -68,7 +68,7 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
                 setShowConfirmModal(false)
               }}
               >
-              Eliminar</button>
+              Confirmar</button>
             </div>
           </div>
         </div>
