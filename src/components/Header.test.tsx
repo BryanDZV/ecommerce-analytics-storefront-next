@@ -5,9 +5,8 @@ import Header from './Header';
 
 // 1. Mockeamos el componente FlexibleImage
 jest.mock('@/app/components/FlexibleImage', () => {
-  return function DummyFlexibleImage(props: any) {
-    // Renderizamos una etiqueta img estándar para que Jest la entienda fácilmente,
-    // pasándole todas las props que el Header le haya enviado.
+  //  Extraemos fill y priority para que no den error en la etiqueta img
+  return function DummyFlexibleImage({ fill, priority, ...props }: any) {
     return <img data-testid="flexible-image" {...props} />;
   };
 });

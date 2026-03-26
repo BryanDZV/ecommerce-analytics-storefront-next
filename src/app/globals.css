@@ -726,8 +726,11 @@
   }
 
   .noProductsEmptyImage {
-    max-width: 20%;
-    min-width: 30%;
+    position: relative; 
+    width: 100%;
+    max-width: 300px;   
+    height: 300px;     
+    margin-top: 20px; 
   }
 
   /* MODAL CONFIRM DELETE - CART */
