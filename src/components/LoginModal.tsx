@@ -3,7 +3,7 @@
 import FlexibleImage from '@/app/components/FlexibleImage'
 import { demoLogin, demoPassword, useUserStore } from '@/store/useUserStore'
 import React, { useState } from 'react'
-import * as z from 'zod'
+import {z} from 'zod'
 import { sileo } from 'sileo'
 import { useNotificationStore } from '@/store/useNotificationStore'
 
