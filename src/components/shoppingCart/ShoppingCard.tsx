@@ -19,7 +19,7 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
   const totalItems = cartItems.length;
 
   const [isRemoving, setIsRemoving] = useState(false);
-  const [showConfirmModal, setShowConfirmModal] = useState(false)
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const handleRemove = () => {
     setIsRemoving(true);
@@ -35,53 +35,59 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
     if (Number.isNaN(value)) {
       return;
     }
-    if(value === 0) {
-      setShowConfirmModal(true)
-      return
+    if (value === 0) {
+      setShowConfirmModal(true);
+      return;
     }
-    if (value < 0 ) {
-      return
+    if (value < 0) {
+      return;
     }
-    updateQuantity(product.id, value)
-  }
-  
+    updateQuantity(product.id, value);
+  };
+
   return (
     <>
       {showConfirmModal && (
-        <div className='confirmOverlay'>
-          <div className='confirmModal'>
-            <p className='confirmModalTitle'>Eliminar el producto de la cesta</p>
+        <div className="confirmOverlay">
+          <div className="confirmModal">
+            <p className="confirmModalTitle">
+              Eliminar el producto de la cesta
+            </p>
 
-            <div className='confirmActions'>
+            <div className="confirmActions">
               <button
-              type='button'
-              className='confirmCancelButton'
-              onClick={() => setShowConfirmModal(false)}
+                type="button"
+                className="confirmCancelButton"
+                onClick={() => setShowConfirmModal(false)}
               >
-              Cancelar</button>
+                Cancelar
+              </button>
 
               <button
-              type='button'
-              className='confirmDeleteButton'
-              onClick={()=> {
-                removeFromCart(product.id)
-                setShowConfirmModal(false)
-              }}
+                type="button"
+                className="confirmDeleteButton"
+                onClick={() => {
+                  removeFromCart(product.id);
+                  setShowConfirmModal(false);
+                }}
               >
-              Confirmar</button>
+                Confirmar
+              </button>
             </div>
           </div>
         </div>
       )}
 
       <div className={`mainShopCart ${isRemoving ? 'fade-out' : ''}`}>
-        <div className="productShopImage">
-          <FlexibleImage
-            className="productImageShopcart"
-            src={product.image}
-            alt={product.name}
-            fill
-          />
+        <div className="productContainerImage">
+          <div className="productShopImage">
+            <FlexibleImage
+              className="imageShopCart"
+              src={product.image}
+              alt={product.name}
+              fill
+            />
+          </div>
         </div>
         <div>
           <div className="nameDescriptionBox">
