@@ -77,11 +77,8 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
 
           <div className="buyDescriptionPage">
-            <div className="quantitySection">
-              <span id='quantity'>Cantidad:</span>
-              <input aria-labelledby='quantity' type="number" />
-            </div>
             <hr className="quantityDivider" />
+            <span>Pendiente por desarrollar</span>
             <div className="amountPriceDetails">
               <strong>Total: </strong>
             </div>
@@ -95,10 +92,10 @@ export default async function ProductDetailPage({ params }: Props) {
           <div className="reviewsStars">
             <strong>Reviews</strong>
             <div>
-              <select aria-label='Sort reviews by date'>
+              <select aria-label="Sort reviews by date">
                 <option>Most Recent</option>
               </select>
-              <select aria-label='Sort reviews by rating'>
+              <select aria-label="Sort reviews by rating">
                 <option>Five stars</option>
               </select>
             </div>
