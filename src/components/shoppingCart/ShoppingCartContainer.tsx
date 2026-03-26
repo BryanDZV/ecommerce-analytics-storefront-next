@@ -2,6 +2,7 @@
 import ShoppingCard from '@/components/shoppingCart/ShoppingCard';
 import CheckoutCart from './CheckoutCart';
 import { useCartStore } from '@/store/useCartStore';
+import FlexibleImage from '@/app/components/FlexibleImage';
 
 export default function ShoppingCartContainer() {
   //we use the hook to obtain the products in the cart
@@ -13,7 +14,12 @@ export default function ShoppingCartContainer() {
         <div className="noProductsEmpty">
           <p>Aquí no hay ningún artículo</p>
           <div className="noProductsEmptyImage">
-            <img src="/shopping-empty.png" alt="no cart" />
+            <FlexibleImage
+              src="/shopping-empty.png"
+              alt="Carrito vacío"
+              fill
+              className="object-contain"
+            />
           </div>
         </div>
       )}
