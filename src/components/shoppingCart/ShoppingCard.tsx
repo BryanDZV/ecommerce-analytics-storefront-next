@@ -19,6 +19,7 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
   const totalItems = cartItems.length;
 
   const [isRemoving, setIsRemoving] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false)
 
   const handleRemove = () => {
     setIsRemoving(true);
@@ -34,11 +35,45 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
     if (Number.isNaN(value)) {
       return;
     }
-    updateQuantity(product.id, value);
-  };
-
+    if(value === 0) {
+      setShowConfirmModal(true)
+      return
+    }
+    if (value < 0 ) {
+      return
+    }
+    updateQuantity(product.id, value)
+  }
+  
   return (
     <>
+      {showConfirmModal && (
+        <div className='confirmOverlay'>
+          <div className='confirmModal'>
+            <p className='confirmModalTitle'>Eliminar el producto de la cesta</p>
+
+            <div className='confirmActions'>
+              <button
+              type='button'
+              className='confirmCancelButton'
+              onClick={() => setShowConfirmModal(false)}
+              >
+              Cancelar</button>
+
+              <button
+              type='button'
+              className='confirmDeleteButton'
+              onClick={()=> {
+                removeFromCart(product.id)
+                setShowConfirmModal(false)
+              }}
+              >
+              Confirmar</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className={`mainShopCart ${isRemoving ? 'fade-out' : ''}`}>
         <div className="productShopImage">
           <FlexibleImage

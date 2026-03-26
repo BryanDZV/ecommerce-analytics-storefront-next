@@ -17,7 +17,7 @@ export default function SearchbarShoppingCart() {
 
           <div className="cartUserBackHome">
             <Link href="/">
-              <img className="imagesOfSearchbar" src="/home.png" alt="" />
+              <img className="imagesOfSearchbar" src="/home.png" alt="Home" />
             </Link>
             <button type="button" onClick={() => setIsLoginOpen(true)}>
               <img

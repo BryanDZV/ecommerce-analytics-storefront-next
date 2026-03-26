@@ -1,6 +1,4 @@
 'use client';
-import { useState } from 'react';
-import Image from 'next/image';
 import ProductGrid from './product/ProductGrid';
 import SideBar from './Sidebar';
 
@@ -17,7 +15,11 @@ export default function GridPage() {
 
   return (
     <>
-      <button className="mobileFilterBtn" onClick={abrirFiltros}></button>
+      <button
+        className="mobileFilterBtn"
+        onClick={abrirFiltros}
+        aria-label="Show filters"
+      ></button>
 
       <div className="mainGridPage">
         <div

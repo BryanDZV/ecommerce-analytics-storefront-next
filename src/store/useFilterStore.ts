@@ -12,6 +12,7 @@ interface FilterStore {
   setSelectedCategory: (category: Category) => void;
   setPriceOrder: (order: PriceOrder) => void;
   setNameOrder: (order: NameOrder) => void;
+  resetFilters: () => void;
 }
 
 export const useFilterStore = create<FilterStore>((set) => ({
@@ -31,4 +32,10 @@ export const useFilterStore = create<FilterStore>((set) => ({
     set({
       nameOrder: order,
     }),
+  resetFilters: () => 
+    set({
+      selectedCategory: null,
+      priceOrder: null,
+      nameOrder: null,
+    }), 
 }));

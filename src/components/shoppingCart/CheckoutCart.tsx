@@ -37,10 +37,12 @@ export default function CheckoutCart() {
               <span>Subtotal: </span>
               <span>{subtotal.toFixed(2)} €</span>
             </div>
-            <div className="checkoutPrices">
-              <span>Descuento: </span>
-              <span>- {discountAmount.toFixed(2)} €</span>
-            </div>
+            {discountAmount > 0 && (
+              <div className="checkoutPrices">
+                <span>Descuento: </span>
+                <span> - {discountAmount.toFixed(2)} €</span>
+              </div>
+            )}
             <div className="checkoutPrices">
               <span>Gastos de envio: </span>
               <span>GRATIS</span>
