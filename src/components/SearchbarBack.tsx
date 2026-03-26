@@ -31,7 +31,7 @@ export default function SearchbarBack() {
             </Link>
 
             <Link href="/">
-              <img className="imagesOfSearchbar" src="/home.png" alt="" />
+              <img className="imagesOfSearchbar" src="/home.png" alt="Home Page" />
             </Link>
 
             <button type="button" onClick={() => setIsLoginOpen(true)}>
