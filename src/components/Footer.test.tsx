@@ -8,7 +8,7 @@ describe('Componente Footer', () => {
     render(<Footer />);
 
     // Buscamos el logo por su texto alternativo
-    const logo = screen.getByAltText('logo');
+    const logo = screen.getByAltText('Nextcom');
 
     expect(logo).toBeInTheDocument();
     expect(logo).toHaveAttribute('src', './Nextcom.png');
