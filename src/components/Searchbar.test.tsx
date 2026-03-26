@@ -11,16 +11,19 @@ jest.mock('./buttons/FilterIcon', () => {
 });
 
 // 2. Mockeamos el LoginModal (importado dinámicamente)
-// Le pasamos las props isOpen y onClose para poder probar la interactividad
 jest.mock('../components/LoginModal', () => {
-  return function DummyLoginModal({ isOpen, onClose }: any) {
-    // Si isOpen es falso, no renderizamos nada, igual que en tu componente real
+  return function DummyLoginModal({
+    isOpen,
+    onClose,
+  }: {
+    isOpen: boolean;
+    onClose: () => void;
+  }) {
     if (!isOpen) return null;
 
     return (
       <div data-testid="login-modal">
         <p>Modal Abierto</p>
-        {/* Un botón falso para simular el cierre del modal */}
         <button onClick={onClose}>Cerrar Modal</button>
       </div>
     );
@@ -31,46 +34,41 @@ describe('Componente Searchbar', () => {
   test('renderiza los elementos iniciales y el modal está cerrado por defecto', () => {
     render(<Searchbar />);
 
-    // Verificamos que el input de búsqueda esté en la pantalla
     const inputBusqueda = screen.getByPlaceholderText('Busca tu producto');
     expect(inputBusqueda).toBeInTheDocument();
 
-    // Verificamos que el icono de usuario exista
     const iconoUsuario = screen.getByAltText('user-icon');
     expect(iconoUsuario).toBeInTheDocument();
 
-    // Verificamos que el modal NO esté en la pantalla al inicio.
-    // Usamos queryByTestId en lugar de getBy... porque getBy lanza un error si no lo encuentra.
     const modal = screen.queryByTestId('login-modal');
     expect(modal).not.toBeInTheDocument();
   });
 
-  test('abre el modal de login cuando se hace clic en el icono de usuario', () => {
+  // CORRECCIÓN: Añadimos async y usamos findByTestId
+  test('abre el modal de login cuando se hace clic en el icono de usuario', async () => {
     render(<Searchbar />);
 
-    // 1. Buscamos el botón del usuario (que contiene la imagen)
     const botonUsuario = screen.getByAltText('user-icon');
-
-    // 2. Simulamos el clic
     fireEvent.click(botonUsuario);
 
-    // 3. Verificamos que el modal AHORA SÍ esté en el documento
-    const modal = screen.getByTestId('login-modal');
+    // findByTestId espera a que el componente aparezca y maneja el act() internamente
+    const modal = await screen.findByTestId('login-modal');
     expect(modal).toBeInTheDocument();
   });
 
-  test('cierra el modal cuando se dispara la función onClose', () => {
+  test('cierra el modal cuando se dispara la función onClose', async () => {
     render(<Searchbar />);
 
-    // 1. Primero abrimos el modal
     fireEvent.click(screen.getByAltText('user-icon'));
-    expect(screen.getByTestId('login-modal')).toBeInTheDocument();
 
-    // 2. Buscamos el botón de cerrar que creamos en nuestro Mock y le hacemos clic
+    // Esperamos a que abra antes de intentar cerrar
+    const modal = await screen.findByTestId('login-modal');
+    expect(modal).toBeInTheDocument();
+
     const botonCerrar = screen.getByText('Cerrar Modal');
     fireEvent.click(botonCerrar);
 
-    // 3. Verificamos que el modal haya desaparecido
+    // Verificamos que desaparezca
     expect(screen.queryByTestId('login-modal')).not.toBeInTheDocument();
   });
 });

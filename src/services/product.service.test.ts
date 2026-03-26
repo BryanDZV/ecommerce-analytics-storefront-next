@@ -1,26 +1,10 @@
-import {
-  getProducts,
-  getProductById,
-  getFilteredProducts,
-} from '@/services/productService';
+import { getProductById, getFilteredProducts } from '@/services/productService';
 import { products } from '@/mocks/mockProducts';
 
 //describe: Groups a set of related tests. In this case, for 'Product Service'.
 //Helps organize code and give context to test reports.
 describe('Product Service', () => {
   //test: Defines an individual test case with a clear description of what it verifies.
-  test('getProducts returns all products with correct metadata', () => {
-    //We call the function we want to test.
-    const result = getProducts();
-    //expect: This is Jest's assertion function. It is used to verify that values ​​meet certain conditions.
-    //.toEqual(): Compares the contents of two objects or arrays to ensure that they are identical.
-    //Used here to verify that the returned data is the products of the mock.
-    expect(result.data).toEqual(products);
-    //.toBe(): Checks for strict equality (===). It is ideal for primitive values ​​such as numbers, strings or booleans.
-    expect(result.totalCount).toBe(products.length);
-    expect(result.page).toBe(1);
-    expect(result.hasNextPage).toBe(false);
-  });
 
   test('getProductById returns the correct product', () => {
     const product = products[0];
@@ -41,18 +25,25 @@ describe('Product Service', () => {
 
   test('getFilteredProducts filter correctly by category', () => {
     const category = products[0].category;
-    const result = getFilteredProducts([category], null, null);
+    // By default we ask for page 1 with a size of 8
+    const result = getFilteredProducts([category], null, null, 1, 8);
 
     //Verify that all returned products are from the selected category
     expect(result.data.every((p) => p.category === category)).toBe(true);
-    expect(result.totalCount).toBe(result.data.length);
+
+    const totalExpected = products.filter(
+      (p) => p.category === category
+    ).length;
+    expect(result.totalCount).toBe(totalExpected); // totalCount debe ser el total real en el mock, no el tamaño de la página
   });
 
-  test('getFilteredProducts returns all if categories is empty', () => {
-    const result = getFilteredProducts([], null, null);
-    //Si no se pasan categorías, deben devolverse todos los productos
-    expect(result.data).toEqual(products);
+  test('getFilteredProducts returns first page if categories is empty', () => {
+    const result = getFilteredProducts([], null, null, 1, 8);
+    //Si no se pasan categorías, deben devolverse los productos de la primera página
+    // se compara con, el trozo de la página 1
+    expect(result.data.length).toBe(8);
     expect(result.totalCount).toBe(products.length);
+    expect(result.pageSize).toBe(8);
   });
 
   test('getFilteredProducts sorts by price min-max', () => {
@@ -84,7 +75,8 @@ describe('Product Service', () => {
     const secondName = result.data[1].name.toLowerCase();
 
     //We verify that the alphabetical order is correct (A <= B)
-    expect(firstName <= secondName).toBe(true);
+    // Usamos localeCompare para ser más precisos con strings
+    expect(firstName.localeCompare(secondName)).toBeLessThanOrEqual(0);
   });
 
   test('getFilteredProducts sorts by name z-a', () => {
@@ -95,6 +87,6 @@ describe('Product Service', () => {
     const secondName = result.data[1].name.toLowerCase();
 
     //We verify that the order is reverse (Z >= Y)
-    expect(firstName >= secondName).toBe(true);
+    expect(firstName.localeCompare(secondName)).toBeGreaterThanOrEqual(0);
   });
 });
