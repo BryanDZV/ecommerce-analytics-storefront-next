@@ -17,6 +17,7 @@ export default function SideBar() {
   // Estado global: orden alfabético y función para actualizarlo
   const nameOrder = useFilterStore((state) => state.nameOrder);
   const setNameOrder = useFilterStore((state) => state.setNameOrder);
+  const resetFilters = useFilterStore((state) => state.resetFilters);
 
   // Categorías disponibles para filtrar
   const categories: Category[] = [
@@ -99,6 +100,16 @@ export default function SideBar() {
               Z-A
             </button>
           </div>
+        </div>
+
+        <div className='resetFilters'>
+            
+          <button
+          type='button'
+          className='resetFiltersButton'
+          onClick={ resetFilters }  
+          >
+          Borrar filtros </button>
         </div>
       </section>
     </dialog>

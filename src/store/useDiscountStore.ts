@@ -1,10 +1,5 @@
 import { create } from 'zustand'
-
-interface DiscountCode {
-    code: string
-    type: 'percentage' | 'fixed'
-    value: number
-}
+import { discountCodes } from '@/mocks/mockDiscounts'
 
 interface DiscountStore {
     code: string
@@ -17,21 +12,6 @@ interface DiscountStore {
     applyCode: (subtotal: number) => void
     resetDiscount: () => void
 }
-
-//Temporary mock data
-
-const mockDiscountCodes: DiscountCode [] = [
-    {
-        code: 'PRUEBA10',
-        type: 'percentage',
-        value: 10
-    },
-    {
-        code: 'PRUEBA5',
-        type: 'fixed',
-        value: 5
-    }
-]
 
 export const useDiscountStore = create<DiscountStore>((set, get) => ({
     code: '',
@@ -57,7 +37,7 @@ export const useDiscountStore = create<DiscountStore>((set, get) => ({
             return
         }
 
-        const matchedCode = mockDiscountCodes.find(
+        const matchedCode = discountCodes.find(
             (item) => item.code === currentCode
         ) 
         if (!matchedCode) {
