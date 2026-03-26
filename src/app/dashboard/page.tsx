@@ -24,7 +24,7 @@ export default function Analytics() {
             <strong>Panel de Control - Resumen de ventas recientes</strong>
           </div>
           <div>
-            <select defaultValue="1-5-marzo">
+            <select defaultValue="1-5-marzo" aria-label='Select Date Range'>
               <option value="1-5-marzo">Del 1 al 5 de Marzo de 2026</option>
             </select>
           </div>
