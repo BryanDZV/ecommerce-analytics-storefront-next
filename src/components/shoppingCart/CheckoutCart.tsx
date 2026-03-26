@@ -63,6 +63,7 @@ export default function CheckoutCart() {
                   placeholder="Discount code"
                   value={code}
                   onChange={(event) => setCode(event.target.value)}
+                  aria-label='Discount code'
                 />
               </span>
               <span>

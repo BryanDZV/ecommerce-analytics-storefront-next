@@ -107,6 +107,7 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
                   type="number"
                   min="0"
                   onChange={handleQuantityChange}
+                  aria-label='Indicate Quantity'
                 />
               </div>
             }
