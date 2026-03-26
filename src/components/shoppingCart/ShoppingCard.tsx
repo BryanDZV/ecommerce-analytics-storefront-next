@@ -1,8 +1,10 @@
+'use client';
 import FlexibleImage from '@/app/components/FlexibleImage';
 import { useCartStore } from '@/store/useCartStore';
 import { CartItem } from '@/types/cart';
 import { Divide } from 'lucide-react';
 import { useState } from 'react';
+
 //we define the props for the ShoppingCard component, which will receive a product of type CartItem
 type ShoppingCardProps = {
   product: CartItem;
@@ -27,13 +29,11 @@ export default function ShoppingCard({ product }: ShoppingCardProps) {
     }, 800);
   };
 
-  const handleQuantityChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = Number(event.target.value)
+  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value);
 
-    if(Number.isNaN(value)) {
-      return
+    if (Number.isNaN(value)) {
+      return;
     }
     if(value === 0) {
       setShowConfirmModal(true)
