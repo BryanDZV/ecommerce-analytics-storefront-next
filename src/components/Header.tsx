@@ -1,4 +1,4 @@
-import FlexibleImage from '@/app/components/FlexibleImage';
+import FlexibleImage from '@/components/FlexibleImage';
 
 export default function Header() {
   return (

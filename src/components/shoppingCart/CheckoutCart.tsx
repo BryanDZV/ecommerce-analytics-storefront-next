@@ -1,4 +1,4 @@
-import FlexibleImage from '@/app/components/FlexibleImage';
+import FlexibleImage from '@/components/FlexibleImage';
 import ShoppingCard from './ShoppingCard';
 import { useCartStore } from '@/store/useCartStore';
 import { useDiscountStore } from '@/store/useDiscountStore';

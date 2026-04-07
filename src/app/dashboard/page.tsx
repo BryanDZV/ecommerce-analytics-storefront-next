@@ -1,5 +1,5 @@
 'use client';
-import FlexibleImage from '@/app/components/FlexibleImage';
+import FlexibleImage from '@/components/FlexibleImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchbarBack from '@/components/SearchbarBack';

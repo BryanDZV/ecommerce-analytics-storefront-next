@@ -1,5 +1,5 @@
 'use client';
-import FlexibleImage from '@/app/components/FlexibleImage';
+import FlexibleImage from '@/components/FlexibleImage';
 import { useCartStore } from '@/store/useCartStore';
 import { CartItem } from '@/types/cart';
 import { Divide } from 'lucide-react';

@@ -1,6 +1,6 @@
 'use client'
 
-import FlexibleImage from '@/app/components/FlexibleImage'
+import FlexibleImage from '@/components/FlexibleImage'
 import { demoLogin, demoPassword, useUserStore } from '@/store/useUserStore'
 import React, { useState } from 'react'
 import {z} from 'zod'

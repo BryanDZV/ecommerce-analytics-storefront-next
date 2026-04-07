@@ -1,4 +1,4 @@
-import FlexibleImage from '@/app/components/FlexibleImage';
+import FlexibleImage from '@/components/FlexibleImage';
 import { useCartStore } from '@/store/useCartStore';
 import { Product } from '@/types/product';
 import Link from 'next/link';

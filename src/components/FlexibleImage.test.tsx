@@ -3,7 +3,7 @@
 import { render, screen } from '@testing-library/react';
 // fireEvent allow us to fire events manually such as clicks, user writting or load events
 import { fireEvent } from '@testing-library/react';
-import FlexibleImage from './FlexibleImage';
+import FlexibleImage from '../../components/FlexibleImage';
 
 // Mock for the Image component in Next.js
 // When the component tries to use next/image change it for a img tag
