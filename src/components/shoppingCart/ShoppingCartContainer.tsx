@@ -2,7 +2,7 @@
 import ShoppingCard from '@/components/shoppingCart/ShoppingCard';
 import CheckoutCart from './CheckoutCart';
 import { useCartStore } from '@/store/useCartStore';
-import FlexibleImage from '@/app/components/FlexibleImage';
+import FlexibleImage from '@/components/FlexibleImage';
 
 export default function ShoppingCartContainer() {
   //we use the hook to obtain the products in the cart
